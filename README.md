@@ -14,4 +14,4 @@ He estado diseñando y haciendo el prototipo de la aplicación móvil en Adobe X
 
 **Mockup**
 
-![Mockup Login y Registro](https://github.com/AlvaroCamposVega/VGym/blob/master/img/MockupLR.PNG)
+![Mockup Login y Registro](https://github.com/AlvaroCamposVega/VGym/blob/master/img/MockupLR.PNG "Mockup Login y Registro")

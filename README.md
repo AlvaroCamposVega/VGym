@@ -9,4 +9,5 @@ He estado diseñando y haciendo el prototipo de la aplicación móvil en Adobe X
 
 * [Kit de interfaz de usuario de Material Design para Adobe XD](https://material.io/archive/guidelines/resources/sticker-sheets-icons.html#)
 
+**Mockup**
 ![Mockup Login y Registro](https://github.com/AlvaroCamposVega/VGym/blob/master/img/MockupLR.PNG)

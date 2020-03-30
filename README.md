@@ -5,5 +5,6 @@ Repositorio para el proyecto de fin de ciclo
 ## Semana 23 Marzo 2020
 He estado diseñando y haciendo el prototipo de la aplicación móvil en Adobe XD. Por ahora tengo las pantallas de login y registro completadas y he comenzado con la pantalla de inicio.
 
-Recursos utilizados:
-[Kit de interfaz de usuario de Material Design para Adobe XD](https://material.io/archive/guidelines/resources/sticker-sheets-icons.html#)
+**Recursos utilizados:**
+
+* [Kit de interfaz de usuario de Material Design para Adobe XD](https://material.io/archive/guidelines/resources/sticker-sheets-icons.html#)

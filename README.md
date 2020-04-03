@@ -27,9 +27,7 @@ He continuado con el diseño y prototipo de la aplicación móvil. He diseñado 
 
 **Mockups**
 
-<p align="center">
-  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio.PNG">
-</p>
+![Mockup Inicio](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio.PNG "Mockup Inicio")
 
 ![Mockup Nueva Rutina](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-nueva-rutina.PNG "Mockup Nueva Rutina")
 

@@ -1,5 +1,5 @@
 # VGym
-Repositorio para el proyecto de fin de ciclo.
+VGym es una aplicación enfocada en el ejercicio físico donde podrás crear rutinas de ejercicios totalmente personalizadas y guardarlas en la nube para llevártelas en cualquier dispositivo.
 
 ## [Presentación](https://github.com/AlvaroCamposVega/VGym/blob/master/Presentacion%20VGym.pdf)
 
@@ -32,3 +32,16 @@ He continuado con el diseño y prototipo de la aplicación móvil. He diseñado 
 ![Mockup Nueva Rutina](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-nueva-rutina.PNG "Mockup Nueva Rutina")
 
 ![Mockup Nuevo Ejercicio](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-nuevo-ejercicio.PNG "Mockup Nuevo Ejercicio")
+
+
+## Semana 13 de Abril 2020
+He eliminado las tabs del diseño de la pantalla de inicio y he realizado el diseño de la pantalla de inicio con una rutina ya creada, además, he comenzado el proyecto en Android Studio.
+
+**Recursos utilizados:**
+
+* [Kit de interfaz de usuario de Material Design para Adobe XD](https://material.io/archive/guidelines/resources/sticker-sheets-icons.html#)
+
+
+**Mockups**
+
+![Mockup Inicio con Ejercicios](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio-con-ejercicios.PNG "Mockup Inicio con Ejercicios")

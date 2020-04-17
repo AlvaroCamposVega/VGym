@@ -27,11 +27,15 @@ He continuado con el diseño y prototipo de la aplicación móvil. He diseñado 
 
 **Mockups**
 
-![Mockup Inicio](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio.PNG "Mockup Inicio")
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio.PNG" alt="Mockup Inicio" title="Mockup Inicio">
+</p>
 
 ![Mockup Nueva Rutina](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-nueva-rutina.PNG "Mockup Nueva Rutina")
 
-![Mockup Nuevo Ejercicio](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-nuevo-ejercicio.PNG "Mockup Nuevo Ejercicio")
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-nuevo-ejercicio.PNG" alt="Mockup Nuevo Ejercicio" title="Mockup Nuevo Ejercicio">
+</p>
 
 
 ## Semana 13 de Abril 2020
@@ -44,4 +48,6 @@ He eliminado las tabs del diseño de la pantalla de inicio y he realizado el dis
 
 **Mockups**
 
-![Mockup Inicio con Ejercicios](https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio-con-ejercicios.PNG "Mockup Inicio con Ejercicios")
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio-con-ejercicios.PNG" alt="Mockup Inicio con Ejercicios" title="Mockup Inicio con Ejercicios">
+</p>

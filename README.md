@@ -51,3 +51,24 @@ He eliminado las tabs del diseño de la pantalla de inicio y he realizado el dis
 <p align="center">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio-con-ejercicios.PNG" alt="Mockup Inicio con Ejercicios" title="Mockup Inicio con Ejercicios">
 </p>
+
+
+## Semana 20 de Abril 2020
+La pantalla de inicio e inicio con una rutina ya creada han sido actualizadas, así como el icono del perfil de la toolbar. También he diseñado el menú de la pantalla de inicio y he comenzado a diseñar la pantalla de perfil la cual está incompleta debido a mis dudas sobre cuál va a ser su estructura. A parte de esto también he comenzado a estudiar cómo voy a usar SQLite en la app leyendo la documentación de Android.
+
+**Recursos utilizados:**
+
+* [Kit de interfaz de usuario de Material Design para Adobe XD](https://material.io/archive/guidelines/resources/sticker-sheets-icons.html#)
+* [Cómo guardar datos con SQLite en Android](https://developer.android.com/training/data-storage/sqlite)
+
+
+**Mockups**
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio-menu-inicio.PNG" alt="Mockup Inicio y Menú Inicio" title="Mockup Inicio y Menú Inicio">
+</p>
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-incompleto.PNG" alt="Mockup Perfil Incompleto" title="Mockup Perfil Incompleto">
+</p>
+

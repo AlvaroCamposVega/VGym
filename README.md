@@ -72,3 +72,38 @@ La pantalla de inicio e inicio con una rutina ya creada han sido actualizadas, a
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-incompleto.PNG" alt="Mockup Perfil Incompleto" title="Mockup Perfil Incompleto">
 </p>
 
+
+## Semana 27 de Abril 2020
+El menú de la pantalla de inicio ha sido actualizado, he creado el diseño para el selector de descanso de un día de la semana y he finalizado el diseño de la pantalla de perfil el cual me ha llevado tiempo por la indecisión y constantes cambios.
+
+**Recursos utilizados:**
+
+* [Kit de interfaz de usuario de Material Design para Adobe XD](https://material.io/archive/guidelines/resources/sticker-sheets-icons.html#)
+* [Cómo guardar datos con SQLite en Android](https://developer.android.com/training/data-storage/sqlite)
+
+
+**Mockups**
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-inicio-menu-update.PNG" alt="Mockup Menú Inicio Actualizado" title="Mockup Menú Inicio Actualizado">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-nueva-rutina-descanso-on.PNG" alt="Mockup Nueva Rutina Descanso Activado" title="Mockup Nueva Rutina Descanso Activado">
+</p>
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-sin1.PNG" alt="Mockup Perfil 1-1" title="Mockup Perfil 1-1">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-sin2.PNG" alt="Mockup Perfil 1-2" title="Mockup Perfil 1-2">
+</p>
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-con1.PNG" alt="Mockup Perfil 2-1" title="Mockup Perfil 2-1">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-con2.PNG" alt="Mockup Perfil 2-2" title="Mockup Perfil 2-2">
+</p>
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-con-ctx1.PNG" alt="Mockup Perfil 3-1" title="Mockup Perfil 3-1">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-con-ctx2.PNG" alt="Mockup Perfil 3-2" title="Mockup Perfil 3-2">
+</p>
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-menu.PNG" alt="Mockup Menú Perfil" title="Mockup Menú Perfil">
+</p>

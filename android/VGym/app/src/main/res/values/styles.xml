@@ -1,0 +1,18 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryL</item>
+        <item name="colorPrimaryDark">@color/primaryLV</item>
+        <item name="colorAccent">@color/errorL</item>
+    </style>
+    <!-- Base application theme. -->
+    <style name="AppThemeNoActionBar" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/primaryL</item>
+        <item name="colorPrimaryDark">@color/primaryLV</item>
+        <item name="colorAccent">@color/errorL</item>
+    </style>
+
+</resources>

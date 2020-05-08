@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">VGym</string>
+    <string name="welcome">Welcome!</string>
+    <string name="login">Login</string>
+    <string name="continue_offline">Continue Offline</string>
+    <string name="no_account_register">New in <i>VGym</i>? <u>Register here</u></string>
+    <string name="cathy_pham_attribution">Photo by CATHY PHAM on <a href="https://unsplash.com/@cathypham243">Unsplash</a></string>
+    <string name="john_fornander_attribution">Photo by John Fornander on <a href="https://unsplash.com/@johnfo">Unsplash</a></string>
+    <string name="steven_erixon_attribution">Photo by Steven Erixon on <a href="https://unsplash.com/@stevenerixon">Unsplash</a></string>
+    <string name="login_hint">Login with a <i>VGym</i> account</string>
+    <string name="password_hint">Password</string>
+</resources>

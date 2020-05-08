@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">VGym</string>
+    <string name="welcome">¡Bienvenid@!</string>
+    <string name="login">Iniciar Sesión</string>
+    <string name="continue_offline">Continuar Offline</string>
+    <string name="no_account_register">¿Nuevo en <i>VGym</i>? <u>Regístrate aquí</u></string>
+    <string name="cathy_pham_attribution">Imagen de CATHY PHAM en <a href="https://unsplash.com/@cathypham243">Unsplash</a></string>
+    <string name="john_fornander_attribution">Imagen de John Fornander en <a href="https://unsplash.com/@johnfo">Unsplash</a></string>
+    <string name="steven_erixon_attribution">Imagen de Steven Erixon en <a href="https://unsplash.com/@stevenerixon">Unsplash</a></string>
+    <string name="login_hint">Inicia sesión con una cuenta de <i>VGym</i></string>
+    <string name="email_hint" translatable="false">Email</string>
+    <string name="password_hint">Contraseña</string>
+</resources>

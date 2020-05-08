@@ -79,7 +79,6 @@ El menú de la pantalla de inicio ha sido actualizado, he creado el diseño para
 **Recursos utilizados:**
 
 * [Kit de interfaz de usuario de Material Design para Adobe XD](https://material.io/archive/guidelines/resources/sticker-sheets-icons.html#)
-* [Cómo guardar datos con SQLite en Android](https://developer.android.com/training/data-storage/sqlite)
 
 
 **Mockups**
@@ -106,4 +105,31 @@ El menú de la pantalla de inicio ha sido actualizado, he creado el diseño para
 
 <p align="center">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-perfil-menu.PNG" alt="Mockup Menú Perfil" title="Mockup Menú Perfil">
+</p>
+
+
+## Semana 4 de Mayo 2020
+He actualizado el diseño cuando el selector de descanso de un día está activado. También he realizado el diseño de la pantalla de bienvenida con posibilidad de usar la app sin una cuenta y, por lo tanto, he retirado la opción de registro de la pantalla de login a la de bienvenida. La pantalla de Bienvenida ha sido maquetada y programada (solo la lógica del botón de inicio de sesión y la página de Unsplash del autor de la imagen de fondo) en Android Studio, además, he importado en la aplicación mi tema personalizado con Material Design el cual diseñé con una herramienta que ofrecen para Android Studio para que sea mucho más fácil el maquetado de las distintas pantallas de la aplicación.
+
+**Recursos utilizados:**
+
+* [Kit de interfaz de usuario de Material Design para Adobe XD](https://material.io/archive/guidelines/resources/sticker-sheets-icons.html#)
+* [Exportar imágenes para Android Studio desde Adobe XD](https://www.youtube.com/watch?v=qb8CsiCELrY)
+* [Crear un tema personalizado con la herramienta de Material Design](https://material.io/resources/build-a-material-theme/#how-to-using-android-studio)
+* [Pequeño tutorial de uso de la herramienta de Material Design](https://www.youtube.com/watch?v=IaT4wdWTwuo&feature=youtu.be&t=838)
+* [Añadir fuentes en Android Studio y crear una font family en XML](https://developer.android.com/guide/topics/ui/look-and-feel/fonts-in-xml)
+* [Hacer sombras en el texto de un Text View](https://blog.stylingandroid.com/text-shadows/)
+* [Hacer un hyperenlace clickeable en un Text View](https://stackoverflow.com/questions/2734270/how-to-make-links-in-a-textview-clickable)
+
+**Mockups**
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-nueva-rutina-descanso-on-update.PNG" alt="Mockup Nueva Rutina Descanso Activado" title="Mockup Nueva Rutina Descanso Activado">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Mockup-bienvenida-login.PNG" alt="Mockup Pantalla Bienvenida y Login" title="Mockup Pantalla Bienvenida y Login">
+</p>
+
+**Imágenes**
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/AS-bienvenida.PNG" alt="Pantalla de Bienvenida en Android Studio" title="Pantalla de Bienvenida en Android Studio">
 </p>

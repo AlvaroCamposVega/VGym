@@ -162,4 +162,5 @@ He subido la versión preliminar de la aplicación la cual tiene implementadas l
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-bienvenida.PNG" alt="Pantalla de Bienvenida en Dispositivo Android" title="Pantalla de Bienvenida en Dispositivo Android">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-registro.PNG" alt="Pantalla de Registro en Dispositivo Android" title="Pantalla de Registro en Dispositivo Android">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-login.PNG" alt="Pantalla de Login en Dispositivo Android" title="Pantalla de login en Dispositivo Android">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-main-desarrollo.PNG" alt="Pantalla Principal en Desarrollo en Dispositivo Android" title="Pantalla Principal en Desarrollo en Dispositivo Android">
 </p>

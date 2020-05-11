@@ -3,6 +3,11 @@ VGym es una aplicación enfocada en el ejercicio físico donde podrás crear rut
 
 ## [Presentación](https://github.com/AlvaroCamposVega/VGym/blob/master/Presentacion%20VGym.pdf)
 
+## Versión Preliminar 11/05/2020
+La apk de la aplicación la puedes encontrar en android/apk/vgym.apk.
+
+[Vídeo Explicativo](https://youtu.be/uRN8YME_WPk)
+
 # Diario
 ## Semana 23 Marzo 2020
 He estado diseñando y haciendo el prototipo de la aplicación móvil en Adobe XD. Por ahora tengo las pantallas de login y registro completadas y he comenzado con la pantalla de inicio.

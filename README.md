@@ -140,3 +140,26 @@ He actualizado el diseño cuando el selector de descanso de un día está activa
 <p align="center">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/AS-bienvenida.PNG" alt="Pantalla de Bienvenida en Android Studio" title="Pantalla de Bienvenida en Android Studio">
 </p>
+
+
+## Semana 11 de Mayo 2020
+He subido la versión preliminar de la aplicación la cual tiene implementadas las pantallas de bienvenida, registro y login.
+
+**Recursos utilizados:**
+
+* [Exportar imágenes para Android Studio desde Adobe XD](https://www.youtube.com/watch?v=qb8CsiCELrY)
+* [Hacer un hyperenlace clickeable en un Text View](https://stackoverflow.com/questions/2734270/how-to-make-links-in-a-textview-clickable)
+* [Hacer partes de un texto clickeables](https://www.youtube.com/watch?v=E4xSjGZWR3E)
+* [Navegación Inferior de Material](https://material.io/develop/android/components/bottom-navigation/)
+* [Barra de Aplicación Superior de Material](https://material.io/develop/android/components/top-app-bars/)
+* [Snackbar de Material](https://material.io/develop/android/components/snackbar/)
+* [TextField de Material](https://material.io/develop/android/components/text-fields/)
+* [Cómo poner sombra a la navegación inferior](https://stackoverflow.com/questions/41650778/android-bottom-navigation-bar-with-drop-shadow)
+
+**Imágenes**
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-bienvenida.PNG" alt="Pantalla de Bienvenida en Dispositivo Android" title="Pantalla de Bienvenida en Dispositivo Android">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-registro.PNG" alt="Pantalla de Registro en Dispositivo Android" title="Pantalla de Registro en Dispositivo Android">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-login.PNG" alt="Pantalla de Login en Dispositivo Android" title="Pantalla de login en Dispositivo Android">
+</p>

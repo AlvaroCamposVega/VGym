@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "101245435129",
+    "firebase_url": "https://vgym-dbd75.firebaseio.com",
+    "project_id": "vgym-dbd75",
+    "storage_bucket": "vgym-dbd75.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:101245435129:android:9d053906e8b5f686bfb628",
+        "android_client_info": {
+          "package_name": "com.alvaro.vgym"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "101245435129-03t0ctbf220c4gku2os9u75i89tphnp0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4OioG_bqerodh-kew-8aXLaqTWfeyh3U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "101245435129-03t0ctbf220c4gku2os9u75i89tphnp0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

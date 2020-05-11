@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/welcome_screen_bg">
+    android:background="@drawable/welcome_screen_bg"
+    tools:context=".WelcomeActivity">
 
     <ImageView
         android:id="@+id/welcomeVgymLogo"
@@ -54,6 +55,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/continue_offline"
+        android:backgroundTint="@color/primaryL"
         android:letterSpacing="0"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,5 +88,4 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
     </TextView>
-
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@
 ~ limitations under the License.
 -->
 
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!--Color-->
 
@@ -66,5 +66,7 @@
     <!--Color on secondary (light), color on background (light),-->
     <!--color on surface (light)-->
     <color name="black">#000000</color>
+
+    <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#99ffffff</color>
 
 </resources>

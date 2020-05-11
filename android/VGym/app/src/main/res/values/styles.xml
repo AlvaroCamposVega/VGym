@@ -15,4 +15,9 @@
         <item name="colorAccent">@color/errorL</item>
     </style>
 
+    <style name="LightInputOverDarkBg" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
+        <item name="boxStrokeColor">@color/primaryL</item>
+        <item name="android:textColorHint">#99ffffff</item>
+    </style>
+
 </resources>

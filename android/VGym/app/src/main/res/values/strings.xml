@@ -3,11 +3,31 @@
     <string name="welcome">¡Bienvenid@!</string>
     <string name="login">Iniciar Sesión</string>
     <string name="continue_offline">Continuar Offline</string>
-    <string name="no_account_register">¿Nuevo en <i>VGym</i>? <u>Regístrate aquí</u></string>
+    <string name="no_account_register">¿Nuevo en <i>VGym</i>? <u>Regístrate</u></string>
     <string name="cathy_pham_attribution">Imagen de CATHY PHAM en <a href="https://unsplash.com/@cathypham243">Unsplash</a></string>
     <string name="john_fornander_attribution">Imagen de John Fornander en <a href="https://unsplash.com/@johnfo">Unsplash</a></string>
     <string name="steven_erixon_attribution">Imagen de Steven Erixon en <a href="https://unsplash.com/@stevenerixon">Unsplash</a></string>
     <string name="login_hint">Inicia sesión con una cuenta de <i>VGym</i></string>
     <string name="email_hint" translatable="false">Email</string>
     <string name="password_hint">Contraseña</string>
+    <string name="login_fail">Email o contraseña incorrectos</string>
+    <string name="fields_empty">Todos los campos deben de ser rellenados</string>
+    <string name="offline_not_implemented">El modo offline todavía no está implementado</string>
+    <string name="name_hint">Nombre</string>
+    <string name="surname_hint">Apellidos</string>
+    <string name="repeat_password_hint">Repetir contraseña</string>
+    <string name="register">Registrarme</string>
+    <string name="register_title">REGISTRO</string>
+    <string name="signup_success">Registro completado</string>
+    <string name="create_fbAccount_error">Ha ocurrido un error desconocido</string>
+    <string name="password_not_equal">Las contraseñas no coinciden</string>
+    <string name="edit_routine">Editar Rutina</string>
+    <string name="add_favorites">Añadir a Favoritos</string>
+    <string name="logout">Cerrar Sesión</string>
+    <string name="main_menu_logout_desc">Cerrar la sesión actual</string>
+    <string name="main_menu_edit_routine_desc">Editar esta rutina</string>
+    <string name="main_menu_add_favorites_desc">Añadir a favoritos esta rutina</string>
+    <string name="label_new_routine">Nueva Rutina</string>
+    <string name="label_routine">Rutina</string>
+    <string name="label_profile">Perfil</string>
 </resources>

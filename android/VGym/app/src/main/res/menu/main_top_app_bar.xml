@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mainMnuEditRoutine"
+        android:title="@string/edit_routine"
+        android:contentDescription="@string/main_menu_edit_routine_desc"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/mainMnuAddToFavorites"
+        android:title="@string/add_favorites"
+        android:contentDescription="@string/main_menu_add_favorites_desc"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/mainMnuLogOut"
+        android:title="@string/logout"
+        android:contentDescription="@string/main_menu_logout_desc"
+        app:showAsAction="never" />
+</menu>

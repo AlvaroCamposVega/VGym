@@ -2,12 +2,32 @@
 <resources>
     <string name="app_name">VGym</string>
     <string name="welcome">Welcome!</string>
-    <string name="login">Login</string>
+    <string name="login">Log In</string>
     <string name="continue_offline">Continue Offline</string>
-    <string name="no_account_register">New in <i>VGym</i>? <u>Register here</u></string>
+    <string name="no_account_register">New in <i>VGym</i>? <u>Sign Up</u></string>
     <string name="cathy_pham_attribution">Photo by CATHY PHAM on <a href="https://unsplash.com/@cathypham243">Unsplash</a></string>
     <string name="john_fornander_attribution">Photo by John Fornander on <a href="https://unsplash.com/@johnfo">Unsplash</a></string>
     <string name="steven_erixon_attribution">Photo by Steven Erixon on <a href="https://unsplash.com/@stevenerixon">Unsplash</a></string>
-    <string name="login_hint">Login with a <i>VGym</i> account</string>
+    <string name="login_hint">Log in with a <i>VGym</i> account</string>
     <string name="password_hint">Password</string>
+    <string name="login_fail">Email or password wrong</string>
+    <string name="fields_empty">All fields must be filled</string>
+    <string name="offline_not_implemented">Offline mode not implemented yet</string>
+    <string name="name_hint">Name</string>
+    <string name="surname_hint">Surname</string>
+    <string name="repeat_password_hint">Repeat password</string>
+    <string name="register">Register</string>
+    <string name="register_title">REGISTER</string>
+    <string name="signup_success">Signup success</string>
+    <string name="create_fbAccount_error">Register failed due to an unknown error</string>
+    <string name="password_not_equal">Passwords don\'t match</string>
+    <string name="edit_routine">Edit Routine</string>
+    <string name="add_favorites">Add to Favorites</string>
+    <string name="logout">Log Out</string>
+    <string name="main_menu_logout_desc">Log Out from the actual sesion</string>
+    <string name="main_menu_edit_routine_desc">Edit this routine</string>
+    <string name="main_menu_add_favorites_desc">Add to favorites this routine</string>
+    <string name="label_new_routine">New Routine</string>
+    <string name="label_routine">Routine</string>
+    <string name="label_profile">Profile</string>
 </resources>

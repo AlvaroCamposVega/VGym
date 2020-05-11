@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@drawable/register_screen_bg"
+    tools:context=".RegisterActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato_black_italic"
+        android:text="@string/register_title"
+        android:textColor="@color/surfaceL"
+        android:textSize="68dp"
+        android:layout_marginTop="40dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"></TextView>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registerEmailLayout"
+        style="@style/LightInputOverDarkBg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="39dp"
+        android:hint="@string/email_hint"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerEmailField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textEmailAddress"
+            android:textColor="@color/surfaceL" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registerNameLayout"
+        style="@style/LightInputOverDarkBg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/name_hint"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerEmailLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerNameField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/surfaceL" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registerSurnameLayout"
+        style="@style/LightInputOverDarkBg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/surname_hint"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerNameLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerSurnameField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text"
+            android:textColor="@color/surfaceL" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registerPasswordLayout"
+        style="@style/LightInputOverDarkBg"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/password_hint"
+        android:layout_marginTop="36dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerSurnameLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerPasswordField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/surfaceL" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/registerRepeatPasswordLayout"
+        style="@style/LightInputOverDarkBg"
+        app:errorEnabled="true"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:hint="@string/repeat_password_hint"
+        android:layout_marginTop="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerPasswordLayout">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/registerRepeatPasswordField"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:textColor="@color/surfaceL" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/registerRegisterBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@color/secondary"
+        android:letterSpacing="0"
+        android:text="@string/register"
+        android:layout_marginTop="28dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/registerRepeatPasswordLayout"
+        />
+
+    <TextView
+        android:id="@+id/registerUnsplashAttribution"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:alpha="0.65"
+        android:text="@string/steven_erixon_attribution"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
+        android:textColor="@color/white"
+        android:layout_marginBottom="35dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+    </TextView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

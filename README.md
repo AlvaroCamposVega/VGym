@@ -143,7 +143,7 @@ He actualizado el diseño cuando el selector de descanso de un día está activa
 
 
 ## Semana 11 de Mayo 2020
-He subido la versión preliminar de la aplicación la cual tiene implementadas las pantallas de bienvenida, registro y login.
+He subido la versión preliminar de la aplicación la cual tiene implementadas las pantallas de bienvenida, registro y login. He optado por utilizar fragmentos en conjunto con las actividades y la barra de navegación inferior y superior han sido adaptadas a este diseño.
 
 **Recursos utilizados:**
 
@@ -155,6 +155,7 @@ He subido la versión preliminar de la aplicación la cual tiene implementadas l
 * [Snackbar de Material](https://material.io/develop/android/components/snackbar/)
 * [TextField de Material](https://material.io/develop/android/components/text-fields/)
 * [Cómo poner sombra a la navegación inferior](https://stackoverflow.com/questions/41650778/android-bottom-navigation-bar-with-drop-shadow)
+* [Documentación fragmentos Android](https://developer.android.com/guide/components/fragments)
 
 **Imágenes**
 

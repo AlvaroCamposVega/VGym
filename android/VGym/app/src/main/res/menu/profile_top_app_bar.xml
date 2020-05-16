@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/mnuProfileDeleteAccount"
+        android:title="@string/delete_account"
+        android:contentDescription="@string/profile_menu_delete_account_desc"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/mnuProfileLogOut"
+        android:title="@string/logout"
+        android:contentDescription="@string/main_menu_logout_desc"
+        app:showAsAction="never" />
+</menu>

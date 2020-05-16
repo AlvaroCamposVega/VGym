@@ -30,4 +30,10 @@
     <string name="label_new_routine">Nueva Rutina</string>
     <string name="label_routine">Rutina</string>
     <string name="label_profile">Perfil</string>
+    <string name="delete_account">Eliminar Cuenta</string>
+    <string name="profile_menu_delete_account_desc">Eliminar esta cuenta</string>
+    <string name="loading_data">Cargando datos...</string>
+    <string name="no_routine">No hay ninguna rutina que mostrar</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

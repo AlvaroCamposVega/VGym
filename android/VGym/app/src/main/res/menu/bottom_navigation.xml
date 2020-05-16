@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/bottomNavNewRoutine"
+        android:id="@+id/mnuBottomNavNewRoutine"
         android:enabled="true"
         android:icon="@drawable/ic_add_box_black_18dp"
         android:title="@string/label_new_routine"/>
     <item
-        android:id="@+id/bottomNavRoutine"
+        android:id="@+id/mnuBottomNavRoutine"
         android:enabled="true"
         android:icon="@drawable/ic_routine_black_18dp"
         android:title="@string/label_routine"/>
     <item
-        android:id="@+id/bottomNavProfile"
+        android:id="@+id/mnuBottomNavProfile"
         android:enabled="true"
         android:icon="@drawable/ic_person_black_18dp"
         android:title="@string/label_profile"/>

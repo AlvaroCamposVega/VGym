@@ -4,21 +4,21 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/mainMnuEditRoutine"
+        android:id="@+id/mnuMainEditRoutine"
         android:title="@string/edit_routine"
         android:contentDescription="@string/main_menu_edit_routine_desc"
         app:showAsAction="never"
         />
 
     <item
-        android:id="@+id/mainMnuAddToFavorites"
+        android:id="@+id/mnuMainAddToFavorites"
         android:title="@string/add_favorites"
         android:contentDescription="@string/main_menu_add_favorites_desc"
         app:showAsAction="never"
         />
 
     <item
-        android:id="@+id/mainMnuLogOut"
+        android:id="@+id/mnuMainLogOut"
         android:title="@string/logout"
         android:contentDescription="@string/main_menu_logout_desc"
         app:showAsAction="never" />

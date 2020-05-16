@@ -1,58 +1,33 @@
 package com.alvaro.vgym;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
-import android.util.Log;
 
-import com.google.android.material.appbar.MaterialToolbar;
-import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.database.FirebaseDatabase;
-
-import butterknife.BindView;
-import butterknife.ButterKnife;
+import com.alvaro.vgym.fragments.BottomNavigation;
+import com.alvaro.vgym.fragments.TopAppBar;
 
 public class MainActivity extends AppCompatActivity
 {
-    @BindView(R.id.mainTopAppBar)
-    MaterialToolbar topAppBar;
-
-    @BindView(R.id.bottom_navigation)
-    BottomNavigationView bottomNavigation;
-
-    private FirebaseAuth fbAuth;
-    private FirebaseDatabase fbDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Enlazar la actividad con ButterKnife
-        ButterKnife.bind(this);
-        // Listener del menú de la barra de arriba
-        topAppBar.setOnMenuItemClickListener(menuItem -> {
-
-            switch (menuItem.getItemId())
-            {
-                case R.id.mainMnuEditRoutine:
-                    Log.i("VGym", "Click en Editar Rutina!");
-                    break;
-                case R.id.mainMnuAddToFavorites:
-                    Log.i("VGym", "Click en Añadir a Favoritos!");
-                    break;
-                case R.id.mainMnuLogOut:
-                    fbAuth = FirebaseAuth.getInstance();
-                    // Cerramos la sesión
-                    fbAuth.signOut();
-                    finish(); // Finalizamos la actividad
-                    break;
-            }
-
-            return false;
-        });
-        // Poner la navegación inferior en su correspondiente item
-        bottomNavigation.setSelectedItemId(R.id.bottomNavRoutine);
+        // Obtenemos el fragment manager y comenzamos una transacción para añadir un fragmento
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+        // Añadimos la barra superior con la configuración 0
+        TopAppBar topAppBarFragment = TopAppBar.newInstance(0);
+        fragmentTransaction.add(R.id.mainTopAppBarView, topAppBarFragment);
+        fragmentTransaction.commit();
+        // Obtenemos el fragmento de la barra de navegación inferior
+        BottomNavigation bottomNavFragment = (BottomNavigation) getSupportFragmentManager()
+            .findFragmentById(R.id.mainBottomNavigation);
+        // Cambiamos el elemento seleccionado al de la rutina
+        bottomNavFragment.setIndex(R.id.mnuBottomNavRoutine);
     }
 }

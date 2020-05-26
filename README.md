@@ -165,3 +165,21 @@ He subido la versión preliminar de la aplicación la cual tiene implementadas l
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-login.PNG" alt="Pantalla de Login en Dispositivo Android" title="Pantalla de login en Dispositivo Android">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-main-desarrollo.PNG" alt="Pantalla Principal en Desarrollo en Dispositivo Android" title="Pantalla Principal en Desarrollo en Dispositivo Android">
 </p>
+
+
+## Semana 18 de Mayo 2020
+Al final he optado por disponer únicamente de la actividad principal y desarrollar todas las demás pantallas accesibles desde la barra de navegación inferior como fragmentos. Se han añadido iconos interaccionables en los campos de las pantallas de login y registro para ocultar/hacer visible las contraseñas y para vaciar los campos de texto. El desarrollo de la pantalla de inicio está en pausa mientras se desarrolla el fragmento del diálogo para crear una nueva rutina el cual tiene su primera pantalla (elegir nombre para la rutina) desarrollada.
+
+**Recursos utilizados:**
+
+* [Documentación fragmentos Android](https://developer.android.com/guide/components/fragments)
+* [Diálogo en pantalla completa Material](https://material.io/components/dialogs#full-screen-dialog)
+* [Documentación diálogos Android](https://developer.android.com/guide/topics/ui/dialogs#FullscreenDialog)
+* [Documentación Recycler View Android](https://developer.android.com/guide/topics/ui/layout/recyclerview)
+
+**Imágenes**
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-update-campos.PNG" alt="Pantalla de Login Campos Actualizados" title="Pantalla de Login Campos Actualizados">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-nueva-rutina-nombre.PNG" alt="Pantalla de Nombre Nueva Rutina" title="Pantalla de Nombre Nueva Rutina">
+</p>

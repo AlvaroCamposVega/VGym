@@ -4,42 +4,40 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.alvaro.vgym.R;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
- * A simple {@link Fragment} subclass.
- * Use the {@link BottomNavigation#newInstance} factory method to
- * create an instance of this fragment.
+ * Una simple subclase {@link Fragment}.
+ * Usa el método {@link BottomNavigation#newInstance} para crear
+ * una instancia de este fragmento.
  */
 public class BottomNavigation extends Fragment
 {
-    // Required empty public constructor
+    public static final String TAG = "bottomNavigation";
+
+    // Constructor público vacío requerido.
     public BottomNavigation() { }
 
     /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
+     * Usa este método para crear una nueva instancia de
+     * este fragmento usando los parámetros proporcionados.
      *
-     * @return A new instance of fragment BottomNavigation.
+     * @return Una nueva instancia de fragment BottomNavigation.
      */
-    public static BottomNavigation newInstance()
-    {
-        BottomNavigation fragment = new BottomNavigation();
-        return fragment;
-    }
+    public static BottomNavigation newInstance() { return new BottomNavigation(); }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-    }
+    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
 
     @Override
     public View onCreateView(
@@ -47,7 +45,7 @@ public class BottomNavigation extends Fragment
         ViewGroup container,
         Bundle savedInstanceState
     )
-    {   // Inflate the layout for this fragment
+    {   // Inflar el layout para este fragmento
         return inflater.inflate(R.layout.fragment_bottom_navigation, container, false);
     }
 
@@ -60,30 +58,67 @@ public class BottomNavigation extends Fragment
             .findViewById(R.id.fragmentBottomNavigation);
         // Listener para la barra de navegación inferior
         bottomNavigation.setOnNavigationItemSelectedListener(menuItem -> {
-           switch (menuItem.getItemId())
-           {
-               case R.id.mnuBottomNavRoutine:
-                   Log.i("VGym", "Click en Rutina!");
-                   break;
-               case R.id.mnuBottomNavProfile:
-                   Log.i("VGym", "Click en Perfil!");
-                   break;
-               case R.id.mnuBottomNavNewRoutine:
-                   Log.i("VGym", "Click en Nueva Rutina!");
-                   break;
-           }
+            boolean result = true;
 
-           return true;
+            switch (menuItem.getItemId())
+            {
+                case R.id.mnuBottomNavRoutine:
+                    // Quitar fragmento perfil y poner fragmento rutina
+                    break;
+                case R.id.mnuBottomNavProfile:
+                    // Quitar fragmento rutina y poner fragmento perfil
+                    Log.i("VGym", "Click en Perfil!");
+                    break;
+                case R.id.mnuBottomNavNewRoutine:
+                    showDialog();
+                    result = false;
+                    break;
+            }
+
+            return result;
         });
+        // 'Sobreescribir' el listener para que si se reselecciona algún item no se tomen acciones.
+        bottomNavigation.setOnNavigationItemReselectedListener(menuItem -> { });
+
+        this.setIndex(R.id.mnuBottomNavRoutine);
     }
 
     /**
-     * Sets the index of the bottom navigation.
-     * @param id The id.
+     * Muestra el Dialog para crear una nueva rutina
+     */
+    private void showDialog()
+    {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+        NewRoutineDialogFragment newRoutineFragment = NewRoutineDialogFragment.newInstance();
+        // Quitamos la barra de navegación inferior y añadimos el modal de la nueva rutina
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
+        transaction
+            .remove(fragmentManager.findFragmentByTag(BottomNavigation.TAG))
+            .add(R.id.mainRootView, newRoutineFragment, NewRoutineDialogFragment.TAG)
+            .commit();
+    }
+
+    /**
+     * Establece el índice de la barra de navegación inferior.
+     *
+     * @param id El id.
      */
     public void setIndex(int id)
     {
         BottomNavigationView bottomNav = getActivity().findViewById(R.id.fragmentBottomNavigation);
         bottomNav.setSelectedItemId(id);
+    }
+
+    /**
+     * Devuelve el índice de la barra de navegación inferior.
+     *
+     * @return El índice.
+     */
+    public int getIndex()
+    {
+        BottomNavigationView bottomNav = getActivity().findViewById(R.id.fragmentBottomNavigation);
+        return bottomNav.getSelectedItemId();
     }
 }

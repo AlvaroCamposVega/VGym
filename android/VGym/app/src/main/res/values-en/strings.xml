@@ -34,4 +34,9 @@
     <string name="profile_menu_delete_account_desc">Delete this account</string>
     <string name="loading_data">Loading data...</string>
     <string name="no_routine">There isn\'t any routine to show</string>
+    <string name="next">Next</string>
+    <string name="new_routine_menu_next_desc">Go to the next step</string>
+    <string name="new_routine_name_hint">Give a name to the new routine</string>
+    <string name="create">Create</string>
+    <string name="workout_day_menu_create_desc">Create the routine</string>
 </resources>

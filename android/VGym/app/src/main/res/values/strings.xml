@@ -36,4 +36,15 @@
     <string name="no_routine">No hay ninguna rutina que mostrar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
+    <string name="next">Siguiente</string>
+    <string name="new_routine_menu_next_desc">Ir al siguiente paso</string>
+    <string name="new_routine_name_hint">Pon un nombre a la nueva rutina</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="placeholder" translatable="false">Placeholder</string>
+    <string name="create">Crear</string>
+    <string name="workout_day_menu_create_desc">Crear la rutina</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
 </resources>

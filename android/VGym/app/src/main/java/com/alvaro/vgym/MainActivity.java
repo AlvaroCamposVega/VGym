@@ -2,32 +2,70 @@ package com.alvaro.vgym;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import com.alvaro.vgym.fragments.BottomNavigation;
 import com.alvaro.vgym.fragments.TopAppBar;
+import com.alvaro.vgym.fragments.WorkoutDayFragment;
+import com.alvaro.vgym.fragments.WorkoutFragment;
+import com.alvaro.vgym.fragments.dummy.DummyContent;
 
 public class MainActivity extends AppCompatActivity
+    implements WorkoutFragment.OnListFragmentInteractionListener,
+    WorkoutDayFragment.OnListFragmentInteractionListener
 {
+    private BottomNavigation bottomNavigation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // Obtenemos el fragment manager y comenzamos una transacción para añadir un fragmento
+        // Inicializamos los fragmentos iniciales
+        initFragments();
+    }
+
+
+    @Override
+    public void onListFragmentInteraction(DummyContent.DummyItem item)
+    {
+
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        /*int index = bottomNavFragment.getIndex();
+
+        switch (index)
+        {
+            case R.id.mnuBottomNavRoutine:
+                finishAffinity();
+                break;
+            case R.id.mnuBottomNavNewRoutine:
+                break;
+            case R.id.mnuBottomNavProfile:
+                break;
+            default:
+                super.onBackPressed();
+        }*/
+
+        super.onBackPressed();
+    }
+
+    private void initFragments()
+    {
         FragmentManager fragmentManager = getSupportFragmentManager();
-        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
-        // Añadimos la barra superior con la configuración 0
-        TopAppBar topAppBarFragment = TopAppBar.newInstance(0);
-        fragmentTransaction.add(R.id.mainTopAppBarView, topAppBarFragment);
-        fragmentTransaction.commit();
+        // Obtenemos el fragmento de la barra superior
+        TopAppBar topAppBar = TopAppBar.newInstance(R.layout.fragment_main_top_app_bar);
         // Obtenemos el fragmento de la barra de navegación inferior
-        BottomNavigation bottomNavFragment = (BottomNavigation) getSupportFragmentManager()
-            .findFragmentById(R.id.mainBottomNavigation);
-        // Cambiamos el elemento seleccionado al de la rutina
-        bottomNavFragment.setIndex(R.id.mnuBottomNavRoutine);
+        bottomNavigation = BottomNavigation.newInstance();
+        // Añadimos los fragmentos a la actividad
+        fragmentManager.beginTransaction()
+            .replace(R.id.mainTopAppBar, topAppBar, TopAppBar.TAG)
+            .replace(R.id.mainBottomNavigation, bottomNavigation, BottomNavigation.TAG)
+            .commit();
     }
 }

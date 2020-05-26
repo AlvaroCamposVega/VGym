@@ -18,6 +18,7 @@
     <style name="LightInputOverDarkBg" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/primaryL</item>
         <item name="android:textColorHint">#99ffffff</item>
+        <item name="endIconTint">@color/surfaceL</item>
     </style>
 
 </resources>

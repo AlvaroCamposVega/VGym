@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
+    android:id="@+id/mainRootView"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -7,7 +8,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <FrameLayout
-        android:id="@+id/mainTopAppBarView"
+        android:id="@+id/mainTopAppBar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -15,16 +16,26 @@
         app:layout_constraintTop_toTopOf="parent">
     </FrameLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
+    <!--<fragment
+        android:name="com.alvaro.vgym.fragments.WorkoutFragment"
+        android:id="@+id/mainWorkout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/mainTopAppBar">
+    </fragment>-->
+
+    <!--<androidx.recyclerview.widget.RecyclerView
         android:id="@+id/mainRoutine"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/mainTopAppBarView">
-    </androidx.recyclerview.widget.RecyclerView>
+        app:layout_constraintTop_toBottomOf="@+id/mainTopAppBar">
+    </androidx.recyclerview.widget.RecyclerView>-->
 
-    <TextView
+    <!--<TextView
         android:id="@+id/mainFeedbackText"
         android:text="@string/loading_data"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
@@ -35,15 +46,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toBottomOf="parent">
-    </TextView>
+    </TextView>-->
 
-    <fragment
-        android:name="com.alvaro.vgym.fragments.BottomNavigation"
+    <FrameLayout
         android:id="@+id/mainBottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
-    </fragment>
+    </FrameLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

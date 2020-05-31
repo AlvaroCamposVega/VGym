@@ -168,7 +168,7 @@ He subido la versión preliminar de la aplicación la cual tiene implementadas l
 
 
 ## Semana 18 de Mayo 2020
-Al final he optado por disponer únicamente de la actividad principal y desarrollar todas las demás pantallas accesibles desde la barra de navegación inferior como fragmentos. Se han añadido iconos interaccionables en los campos de las pantallas de login y registro para ocultar/hacer visible las contraseñas y para vaciar los campos de texto. El desarrollo de la pantalla de inicio está en pausa mientras se desarrolla el fragmento del diálogo para crear una nueva rutina el cual tiene su primera pantalla (elegir nombre para la rutina) desarrollada.
+Al final he optado por disponer únicamente de la actividad principal y desarrollar todas las demás pantallas accesibles desde la barra de navegación inferior como fragmentos. Se han añadido iconos interaccionables en los campos de las pantallas de login y registro para ocultar/hacer visible las contraseñas y para vaciar los campos de texto. El desarrollo de la pantalla de inicio está en pausa mientras se desarrolla el fragmento del diálogo para crear una nueva rutina el cual tiene su primera pantalla (elegir nombre para la rutina) desarrollada. También se han creado modelos provisionales de todo lo relacionado con la rutina.
 
 **Recursos utilizados:**
 

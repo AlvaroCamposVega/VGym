@@ -183,3 +183,21 @@ Al final he optado por disponer únicamente de la actividad principal y desarrol
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-update-campos.PNG" alt="Pantalla de Login Campos Actualizados" title="Pantalla de Login Campos Actualizados">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-nueva-rutina-nombre.PNG" alt="Pantalla de Nombre Nueva Rutina" title="Pantalla de Nombre Nueva Rutina">
 </p>
+
+
+## Semana 25 de Mayo 2020
+El desarrollo del diálogo de la nueva rutina está casi completo (solo falta el diálogo de añadir ejercicio) y se ha refinado el comportamiento de este añadiendo animaciones. Tuve que cambiar gran parte del código del diálogo ya que de la manera que estaba en la anterior actualización no habría sido posible añadir las animaciones ni hacer una estructura anidada con los fragmentos.
+
+**Recursos utilizados:**
+
+* [Documentación Recycler View Android](https://developer.android.com/guide/topics/ui/layout/recyclerview)
+* [Floating Action Button Material](https://material.io/develop/android/components/floating-action-button/)
+* [Switches Material](https://material.io/develop/android/components/switch/)
+* [Animaciones de Fade In y Fade Out](https://www.tutlane.com/tutorial/android/android-fade-in-out-animations-with-examples)
+* [Animaciones de Slide para el Diálogo](https://gist.github.com/orhanobut/8665372)
+
+**Imágenes**
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-nueva-rutina-incompleta.gif" alt="GIF Diálogo Nueva Rutina Incompleto" title="GIF Diálogo Nueva Rutina Incompleto">
+</p>

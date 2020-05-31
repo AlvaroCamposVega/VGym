@@ -70,7 +70,9 @@ public class BottomNavigation extends Fragment
                     Log.i("VGym", "Click en Perfil!");
                     break;
                 case R.id.mnuBottomNavNewRoutine:
-                    showDialog();
+                    NewRoutineDialogFragment dialog = NewRoutineDialogFragment.newInstance();
+                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+                    dialog.show(fragmentManager, NewRoutineDialogFragment.TAG);
                     result = false;
                     break;
             }
@@ -81,23 +83,6 @@ public class BottomNavigation extends Fragment
         bottomNavigation.setOnNavigationItemReselectedListener(menuItem -> { });
 
         this.setIndex(R.id.mnuBottomNavRoutine);
-    }
-
-    /**
-     * Muestra el Dialog para crear una nueva rutina
-     */
-    private void showDialog()
-    {
-        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-        NewRoutineDialogFragment newRoutineFragment = NewRoutineDialogFragment.newInstance();
-        // Quitamos la barra de navegación inferior y añadimos el modal de la nueva rutina
-        FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN);
-        transaction
-            .remove(fragmentManager.findFragmentByTag(BottomNavigation.TAG))
-            .add(R.id.mainRootView, newRoutineFragment, NewRoutineDialogFragment.TAG)
-            .commit();
     }
 
     /**

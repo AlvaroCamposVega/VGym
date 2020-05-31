@@ -53,6 +53,8 @@
     <color name="errorD">#cf6679</color> <!--Color error (dark)-->
     <color name="errorL">#b00020</color> <!--Color error (light)-->
 
+    <color name="restDay">#8066df21</color>
+
     <color name="backgroundD">#121212</color> <!--Color background (dark)-->
     <color name="backgroundL">#f4f4f4</color> <!--Color background (light)-->
 

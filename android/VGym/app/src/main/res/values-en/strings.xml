@@ -38,5 +38,21 @@
     <string name="new_routine_menu_next_desc">Go to the next step</string>
     <string name="new_routine_name_hint">Give a name to the new routine</string>
     <string name="create">Create</string>
-    <string name="workout_day_menu_create_desc">Create the routine</string>
+    <string name="new_routine_menu_create_desc">Create the routine</string>
+    <string-array name="days_array">
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Saturday</item>
+        <item>Sunday</item>
+    </string-array>
+    <string name="label_rest_day">Rest day</string>
+    <string name="workout_name_hint">Workout name</string>
+    <string name="add_exercise_label">Add exercise</string>
+    <string name="add_exercise_label_btn_desc">Add a new exercise</string>
+    <string name="add_exercise_hint">Add an exercise</string>
+    <string name="rest">Rest</string>
+    <string name="rest_day_msg">Rest day!\n\nTry to move around a bit to keep your body active!</string>
 </resources>

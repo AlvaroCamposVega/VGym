@@ -23,7 +23,6 @@ public class NewRoutineName extends Fragment
     public static final String TAG = "newRoutineName";
 
     private TextInputEditText nameEditText;
-    private NewRoutineDialogFragment dialogFragment;
 
     // Required empty public constructor
     public NewRoutineName() { }
@@ -41,10 +40,7 @@ public class NewRoutineName extends Fragment
     }
 
     @Override
-    public void onCreate(Bundle savedInstanceState)
-    {
-        super.onCreate(savedInstanceState);
-    }
+    public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
 
     @Override
     public View onCreateView(
@@ -61,28 +57,14 @@ public class NewRoutineName extends Fragment
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
-        dialogFragment = (NewRoutineDialogFragment) fragmentManager
+        NewRoutineDialogFragment dialogFragment = (NewRoutineDialogFragment) fragmentManager
             .findFragmentByTag(NewRoutineDialogFragment.TAG);
 
         nameEditText = view.findViewById(R.id.newRoutineName);
-        nameEditText.setText(dialogFragment.routine.getName());
+        nameEditText.setText(dialogFragment.getRoutineName());
 
         return view;
     }
 
-    /**
-     * Establece el nombre de la rutina desde el campo nombre.
-     *
-     * @return False si el campo está vacío.
-     */
-    public boolean setRoutineNameFromTextField()
-    {
-        boolean result = false;
-        String name = nameEditText.getText().toString();
-        // Si el campo del nombre de la rutina no está vacío establecemos el nombre en el objeto
-        // de la rutina y cambiamos el resultado a verdadero
-        if (!name.trim().isEmpty()) { dialogFragment.routine.setName(name); result = true; }
-
-        return result;
-    }
+    public String getRoutineNameFromTextField() { return nameEditText.getText().toString(); }
 }

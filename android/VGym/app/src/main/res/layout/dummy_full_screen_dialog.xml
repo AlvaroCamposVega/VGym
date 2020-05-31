@@ -5,26 +5,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.WorkoutDayFragment">
+    tools:context=".fragments.DummyFullScreenDialog">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <com.google.android.material.appbar.MaterialToolbar
-            android:id="@+id/fragmentTopAppBar"
+            android:id="@+id/dummyTopAppBar"
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/workout_day_top_app_bar"
-            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
-            app:title="@string/placeholder" />
+            app:menu="@menu/new_routine_top_app_bar"
+            app:navigationIcon="@drawable/ic_close_black_24dp"
+            app:title="@string/label_new_routine" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <!-- Note: A RecyclerView can also be used -->
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/fragmentWDTopAppBarContent"
+        android:id="@+id/fragmentNRTopAppBarContent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">

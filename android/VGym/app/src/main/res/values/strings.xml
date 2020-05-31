@@ -34,17 +34,26 @@
     <string name="profile_menu_delete_account_desc">Eliminar esta cuenta</string>
     <string name="loading_data">Cargando datos...</string>
     <string name="no_routine">No hay ninguna rutina que mostrar</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="next">Siguiente</string>
     <string name="new_routine_menu_next_desc">Ir al siguiente paso</string>
     <string name="new_routine_name_hint">Pon un nombre a la nueva rutina</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="placeholder" translatable="false">Placeholder</string>
     <string name="create">Crear</string>
-    <string name="workout_day_menu_create_desc">Crear la rutina</string>
-
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="new_routine_menu_create_desc">Crear la rutina</string>
+    <string-array name="days_array">
+        <item>Lunes</item>
+        <item>Martes</item>
+        <item>Miércoles</item>
+        <item>Jueves</item>
+        <item>Viernes</item>
+        <item>Sábado</item>
+        <item>Domingo</item>
+    </string-array>
+    <string name="label_rest_day">Día de descanso</string>
+    <string name="workout_name_hint">Nombre del entrenamiento</string>
+    <string name="add_exercise_label">Añadir ejercicio</string>
+    <string name="add_exercise_label_btn_desc">Añadir un nuevo ejercicio</string>
+    <string name="add_exercise_hint">Añade un ejercicio</string>
+    <string name="rest">Descanso</string>
+    <string name="rest_day_msg">¡Día de descanso!\n\n¡Procura siempre moverte un poco aunque toque descansar!</string>
 </resources>

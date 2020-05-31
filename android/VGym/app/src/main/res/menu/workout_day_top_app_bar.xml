@@ -4,6 +4,6 @@
     <item
         android:id="@+id/mnuWorkoutDayCreate"
         android:title="@string/create"
-        android:contentDescription="@string/workout_day_menu_create_desc"
+        android:contentDescription="@string/new_routine_menu_create_desc"
         app:showAsAction="ifRoom" />
 </menu>

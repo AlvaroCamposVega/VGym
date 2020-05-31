@@ -7,14 +7,19 @@ import android.os.Bundle;
 import android.util.Log;
 
 import com.alvaro.vgym.fragments.BottomNavigation;
+import com.alvaro.vgym.fragments.ExercisesFragment;
+import com.alvaro.vgym.fragments.NewRoutineDialogFragment;
 import com.alvaro.vgym.fragments.TopAppBar;
 import com.alvaro.vgym.fragments.WorkoutDayFragment;
 import com.alvaro.vgym.fragments.WorkoutFragment;
 import com.alvaro.vgym.fragments.dummy.DummyContent;
+import com.alvaro.vgym.model.Exercise;
+import com.alvaro.vgym.model.Workout;
 
 public class MainActivity extends AppCompatActivity
     implements WorkoutFragment.OnListFragmentInteractionListener,
-    WorkoutDayFragment.OnListFragmentInteractionListener
+    WorkoutDayFragment.OnWorkoutDaySelectedListener,
+    ExercisesFragment.OnExerciseSelectedListener
 {
     private BottomNavigation bottomNavigation;
 
@@ -32,6 +37,28 @@ public class MainActivity extends AppCompatActivity
     public void onListFragmentInteraction(DummyContent.DummyItem item)
     {
 
+    }
+
+    @Override
+    public void onWorkoutDaySelected(Workout workout)
+    {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        NewRoutineDialogFragment dialog = (NewRoutineDialogFragment) fragmentManager
+            .findFragmentByTag(NewRoutineDialogFragment.TAG);
+
+        dialog.workoutDaySelected(workout);
+    }
+
+    @Override
+    public void onExerciseSelected(Exercise exercise)
+    {
+        Log.i("VGym", "Click en el Ejercicio: " + exercise.getName() + "!");
+    }
+
+    @Override
+    public void onDeleteExercise(Exercise exercise)
+    {
+        Log.i("VGym", "Eliminar Ejercicio: " + exercise.getName() + "!");
     }
 
     @Override

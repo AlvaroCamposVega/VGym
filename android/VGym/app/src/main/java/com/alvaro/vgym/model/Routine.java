@@ -1,10 +1,14 @@
 package com.alvaro.vgym.model;
 
+import android.content.Context;
+
+import com.alvaro.vgym.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Routine implements Serializable
 {
@@ -17,8 +21,8 @@ public class Routine implements Serializable
     private String name;
 
     @Expose
-    @SerializedName("weekdays")
-    private ArrayList<Workout> weekdays;
+    @SerializedName("workouts")
+    private List<Workout> workouts;
 
     public Routine()
     {
@@ -28,9 +32,20 @@ public class Routine implements Serializable
             "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
         };
 
-        this.weekdays = new ArrayList<Workout>();
+        this.workouts = new ArrayList<Workout>();
 
-        for (int i = 0; i < 7; i++) { this.weekdays.add(new Workout(i, days[i])); }
+        for (int i = 0; i < 7; i++) { this.workouts.add(new Workout(i, days[i])); }
+    }
+
+    public Routine(Context ctx)
+    {
+        this.name = "Prueba";
+        // Obtenemos los días de la semana
+        String[] days = ctx.getResources().getStringArray(R.array.days_array);
+
+        this.workouts = new ArrayList<Workout>();
+        // Poblamos la lista
+        for (int i = 0; i < 7; i++) { this.workouts.add(new Workout(i, days[i])); }
     }
 
     public int getId() { return id; }
@@ -41,7 +56,7 @@ public class Routine implements Serializable
 
     public void setName(String name) { this.name = name; }
 
-    public ArrayList<Workout> getWeekdays() { return weekdays; }
+    public List<Workout> getWorkouts() { return workouts; }
 
-    public void setWeekdays(ArrayList<Workout> weekdays) { this.weekdays = weekdays; }
+    public void setWorkouts(List<Workout> workouts) { this.workouts = workouts; }
 }

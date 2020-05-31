@@ -13,7 +13,8 @@
         android:layout_marginBottom="40dp"
         android:gravity="center"
         android:text="@string/new_routine_name_hint"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1" />
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:fontFamily="@font/raleway_medium" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="300dp"

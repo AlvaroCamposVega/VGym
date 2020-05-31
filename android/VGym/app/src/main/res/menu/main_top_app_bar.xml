@@ -8,6 +8,7 @@
         android:title="@string/edit_routine"
         android:contentDescription="@string/main_menu_edit_routine_desc"
         app:showAsAction="never"
+        android:enabled="false"
         />
 
     <item
@@ -15,6 +16,7 @@
         android:title="@string/add_favorites"
         android:contentDescription="@string/main_menu_add_favorites_desc"
         app:showAsAction="never"
+        android:enabled="false"
         />
 
     <item

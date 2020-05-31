@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/exercisesListHint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_exercise_hint"
+        android:layout_gravity="center"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:fontFamily="@font/raleway_medium"
+        style="@style/IconStyle">
+    </TextView>
+
+    <com.google.android.material.switchmaterial.SwitchMaterial
+        android:id="@+id/exercisesListRestSwitch"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:checked="false"
+        android:fontFamily="@font/raleway_medium"
+        android:text="@string/label_rest_day"
+        android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+        android:layout_gravity="top|center"/>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/exercisesListNameLayout"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="120dp"
+        android:hint="@string/workout_name_hint">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/exercisesListName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="text" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/exercisesList"
+        android:name="com.alvaro.vgym.fragments.ExercisesFragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:layout_marginTop="200dp"
+        app:layoutManager="LinearLayoutManager"
+        tools:context=".fragments.ExercisesFragment"
+        tools:listitem="@layout/fragment_exercises" />
+
+    <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+        android:id="@+id/exercisesListAddBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:layout_gravity="bottom|center"
+        android:contentDescription="@string/add_exercise_label_btn_desc"
+        android:text="@string/add_exercise_label"
+        app:icon="@drawable/ic_add_black_18dp" />
+
+    <LinearLayout
+        android:id="@+id/exercisesListRestMsg"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone">
+        <ImageView
+            android:layout_width="152dp"
+            android:layout_height="152dp"
+            android:src="@drawable/ic_mood_48dp"
+            android:tint="@color/restDay"
+            android:layout_gravity="center">
+        </ImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:fontFamily="@font/raleway_medium"
+            android:layout_margin="@dimen/text_margin"
+            android:text="@string/rest_day_msg"
+            android:alpha="0.5">
+        </TextView>
+    </LinearLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

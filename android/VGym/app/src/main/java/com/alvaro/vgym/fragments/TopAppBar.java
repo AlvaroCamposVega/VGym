@@ -1,21 +1,27 @@
 package com.alvaro.vgym.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
 import com.alvaro.vgym.R;
+import com.alvaro.vgym.model.Workout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.List;
 
 /**
  * Una simple subclase {@link Fragment}.
@@ -26,7 +32,6 @@ public class TopAppBar extends Fragment
 {
     public static final String TAG = "topAppBar";
     private static final String ARG_LAYOUT_ID = "layoutId";
-    private static final String WORKOUT_DAY_TOP_APP_BAR_BACK_STACK_NAME = "workoutDayBackStack";
 
     private int layoutId;
     private MaterialToolbar topAppBar;
@@ -97,35 +102,19 @@ public class TopAppBar extends Fragment
             case R.layout.fragment_profile_top_app_bar:
                 setProfileTopAppBarListener();
                 break;
-            // Si la layout es la del modal de nueva rutina
+            // Si la layout es la del diálogo de nueva rutina
             case R.layout.fragment_new_routine_top_app_bar:
-                NewRoutineDialogFragment newRoutineDialogFragment = (NewRoutineDialogFragment)
-                    fragmentManager.findFragmentByTag(NewRoutineDialogFragment.TAG);
+                FragmentManager childFragmentManager = this.getChildFragmentManager();
 
-                fragmentManager.beginTransaction().replace(
-                    R.id.fragmentNRTopAppBarContent,
-                    NewRoutineName.newInstance(),
-                    NewRoutineName.TAG
-                ).commit();
-
-                setNewRoutineTopAppBarListener(newRoutineDialogFragment);
-                break;
-            // Si la layout es la del modal de la lista de días de la rutina
-            case R.layout.fragment_workout_day_top_app_bar:
-                // Obtenemos el fragmento de la nueva rutina
-                newRoutineDialogFragment = (NewRoutineDialogFragment)
-                    fragmentManager.findFragmentByTag(NewRoutineDialogFragment.TAG);
-                // Cambiamos el título de la top app bar por el nombre de la rutina
-                topAppBar.setTitle(newRoutineDialogFragment.routine.getName());
-                // Reemplazamos el contenido por el fragmento que controla los días de la rutina
-                fragmentManager.beginTransaction()
+                childFragmentManager.beginTransaction()
                     .replace(
-                        R.id.fragmentWDTopAppBarContent,
-                        WorkoutDayFragment.newInstance(1),
-                        WorkoutDayFragment.TAG
-                    ).addToBackStack(null).commit();
+                        R.id.fragmentNRTopAppBarContent,
+                        NewRoutineName.newInstance(),
+                        NewRoutineName.TAG
+                    )
+                    .commit();
 
-                setWorkoutDayTopAppBarListener();
+                setNewRoutineTopAppBarListener();
                 break;
         }
     }
@@ -183,37 +172,64 @@ public class TopAppBar extends Fragment
     }
 
     /**
+     * Sustituye la top app bar actual a la del diálogo de nueva rutina.
+     */
+    private void swapToNewRoutineDialogTopAppBar()
+    {
+        MenuItem menuItem = topAppBar.getMenu().getItem(0);
+
+        topAppBar.setTitle(R.string.label_new_routine);
+        topAppBar.setNavigationIcon(R.drawable.ic_close_black_24dp);
+
+        menuItem.setTitle(R.string.next);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            String desc = getString(R.string.new_routine_menu_next_desc);
+            menuItem.setContentDescription(desc);
+        }
+
+        setNewRoutineTopAppBarListener();
+    }
+
+    /**
      * Establece el listener de la top app bar para el nombre de la nueva rutina.
      */
-    private void setNewRoutineTopAppBarListener(NewRoutineDialogFragment newRoutineDialogFragment)
-    {   // Listener del botón de cancelar (la X)
-        topAppBar.setNavigationOnClickListener(v -> {
-            newRoutineDialogFragment.dismiss(); // Cerramos el modal
-            // Volvemos a añadir la barra de navegación inferior a su correspondiente contenedor
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-            fragmentManager.beginTransaction()
-                .replace(
-                    R.id.mainBottomNavigation,
-                    BottomNavigation.newInstance(),
-                    BottomNavigation.TAG
-                ).commit();
-        });
+    private void setNewRoutineTopAppBarListener()
+    {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        // Obtenemos el fragmento del diálogo de nueva rutina
+        NewRoutineDialogFragment newRoutineDialogFragment = (NewRoutineDialogFragment)
+            fragmentManager.findFragmentByTag(NewRoutineDialogFragment.TAG);
+        // Listener del botón de cancelar (la X)
+        topAppBar.setNavigationOnClickListener(v -> newRoutineDialogFragment.dismiss());
         // Listener del texto SIGUIENTE
         topAppBar.setOnMenuItemClickListener(menuItem -> {
-            if (menuItem.getItemId() == R.id.mnuNewRoutineNext)
+            if (menuItem.getItemId() == R.id.mnuNewRoutineAction)
             {   // Si no hay errores en el nombre de la rutina
                 if (newRoutineDialogFragment.setRoutineNameFromTextField())
                 {
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    // Reemplazamos la top app bar por la de la lista de días y la añadimos a la
-                    // pila con un nombre para posteriormente poder revertir los cambios
-                    fragmentManager.beginTransaction().replace(
-                        R.id.newRoutineTopAppBar,
-                        TopAppBar.newInstance(R.layout.fragment_workout_day_top_app_bar),
-                        TopAppBar.TAG
-                    ).addToBackStack(WORKOUT_DAY_TOP_APP_BAR_BACK_STACK_NAME).commit();
-                // Si hay errores en el nombre mandamos una alerta al usuario
-                } else
+                    List<Workout> workouts = newRoutineDialogFragment.getRoutine().getWorkouts();
+                    // Reemplazamos el contenido por el fragmento que controla los días de la rutina
+                    FragmentManager childFragmentManager = this.getChildFragmentManager();
+                    childFragmentManager.beginTransaction()
+                        .setCustomAnimations(
+                            R.anim.slide_left_in,
+                            R.anim.slide_left_out,
+                            R.anim.slide_right_in,
+                            R.anim.slide_right_out
+                        )
+                        .replace(
+                            R.id.fragmentNRTopAppBarContent,
+                            WorkoutDayFragment.newInstance(workouts),
+                            WorkoutDayFragment.TAG
+                        )
+                        .addToBackStack(null)
+                        .commit();
+                    // Actualizamos la top app bar
+                    swapToWorkoutDayTopAppBar(newRoutineDialogFragment);
+                }// Si hay errores en el nombre mandamos una alerta al usuario
+                else
                 {
                     Snackbar.make(topAppBar, R.string.fields_empty, Snackbar.LENGTH_SHORT).show();
                 }
@@ -224,26 +240,108 @@ public class TopAppBar extends Fragment
     }
 
     /**
+     * Sustituye la top app bar actual a la de la lista de días.
+     *
+     * @param dialogFragment El fragmento del diálogo.
+     */
+    private void swapToWorkoutDayTopAppBar(NewRoutineDialogFragment dialogFragment)
+    {
+        MenuItem menuItem = topAppBar.getMenu().getItem(0);
+
+        topAppBar.setTitle(dialogFragment.getRoutineName());
+        topAppBar.setNavigationIcon(R.drawable.ic_arrow_back_black_24dp);
+
+        menuItem.setTitle(R.string.create).setVisible(true);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O)
+        {
+            String desc = getString(R.string.new_routine_menu_create_desc);
+            menuItem.setContentDescription(desc);
+        }
+
+        setWorkoutDayTopAppBarListener();
+    }
+
+    /**
      * Establece el listener de la top app bar para la lista de días de la nueva rutina.
      */
     private void setWorkoutDayTopAppBarListener()
     {   // Listener del botón de navegar a la pantalla anterior
         topAppBar.setNavigationOnClickListener(v -> {
-            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             // Retroceder a la pantalla de nombre de rutina
-            fragmentManager.popBackStack(
-                WORKOUT_DAY_TOP_APP_BAR_BACK_STACK_NAME,
-                FragmentManager.POP_BACK_STACK_INCLUSIVE
-            );
+            this.getChildFragmentManager().popBackStack();
+            // Actualizamos la top app bar
+            swapToNewRoutineDialogTopAppBar();
         });
         // Listener del texto CREAR
         topAppBar.setOnMenuItemClickListener(menuItem -> {
-            if (menuItem.getItemId() == R.id.mnuWorkoutDayCreate)
+            if (menuItem.getItemId() == R.id.mnuNewRoutineAction)
             {
                 Log.i("VGym", "Crear Rutina!");
             }
 
             return false;
         });
+    }
+
+    /**
+     * Sustituye la top app bar actual a la de la lista de ejercicios.
+     *
+     * @param exercisesFragment El fragmento de la lista de ejercicios.
+     */
+    public void swapToExercisesTopAppBar(ExercisesFragment exercisesFragment)
+    {
+        MenuItem menuItem = topAppBar.getMenu().getItem(0);
+
+        topAppBar.setTitle(exercisesFragment.getWorkoutDay());
+
+        menuItem.setVisible(false);
+
+        setExercisesTopAppBarListener(exercisesFragment);
+    }
+
+    /**
+     * Establece el listener de la top app bar para los ejercicios de la nueva rutina.
+     */
+    private void setExercisesTopAppBarListener(ExercisesFragment exercisesFragment)
+    {
+        FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+        // Obtenemos el fragmento del diálogo de nueva rutina
+        NewRoutineDialogFragment newRoutineDialogFragment = (NewRoutineDialogFragment)
+            fragmentManager.findFragmentByTag(NewRoutineDialogFragment.TAG);
+        // Listener del botón de navegar a la pantalla anterior
+        topAppBar.setNavigationOnClickListener(v -> {
+            // Establecemos el nombre del entrenamiento
+            exercisesFragment.setExerciseNameFromTextField();
+            // Retroceder a la pantalla de la lista de días
+            this.getChildFragmentManager().popBackStack();
+            // Actualizamos la top app bar
+            swapToWorkoutDayTopAppBar(newRoutineDialogFragment);
+        });
+    }
+
+    /**
+     * Cambia a la pantalla de la lista de ejercicios del entrenamiento seleccionado.
+     *
+     * @param workout El entrenamiento.
+     */
+    public void workoutDaySelected(Workout workout)
+    {
+        FragmentManager childFragmentManager = this.getChildFragmentManager();
+
+        childFragmentManager.beginTransaction()
+            .setCustomAnimations(
+                R.anim.slide_left_in,
+                R.anim.slide_left_out,
+                R.anim.slide_right_in,
+                R.anim.slide_right_out
+            )
+            .replace(
+                R.id.fragmentNRTopAppBarContent,
+                ExercisesFragment.newInstance(workout),
+                ExercisesFragment.TAG
+            )
+            .addToBackStack(null)
+            .commit();
     }
 }

@@ -201,3 +201,19 @@ El desarrollo del diálogo de la nueva rutina está casi completo (solo falta el
 <p align="center">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-nueva-rutina-incompleta.gif" alt="GIF Diálogo Nueva Rutina Incompleto" title="GIF Diálogo Nueva Rutina Incompleto">
 </p>
+
+
+## Semana 1 de Mayo 2020
+Se ha refactorizado todo el código de la aplicación (cambiado nombres, agregado comentarios, etc) para que su mantenimiento fuera más sencillo ya que los nombres que tenían algunas clases daban lugar a confusión. El diálogo de nueva rutina (Y editar rutina) está casi terminado quedando sólo un bug y alguna implementación por finalizar. La pantalla de inicio se encuentra en el mismo estado que el diálogo de nueva rutina.
+
+**Recursos utilizados:**
+
+* [Documentación Recycler View Android](https://developer.android.com/guide/topics/ui/layout/recyclerview)
+
+**Imágenes**
+
+<p align="center">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-main-incompleta.PNG" alt="Pantalla Inicio Incompleta" title="Pantalla Inicio Incompleta">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-main-incompleta-menu.PNG" alt="Pantalla Inicio Incompleta con Menú" title="Pantalla Inicio Incompleta con Menú">
+  <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-nueva-rutina-ctx-menu.PNG" alt="Diálogo Nueva Rutina con Menú Contextual de Acciones" title="Diálogo Nueva Rutina con Menú Contextual de Acciones">
+</p>

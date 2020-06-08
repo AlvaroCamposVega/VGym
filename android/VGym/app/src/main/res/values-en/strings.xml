@@ -36,7 +36,7 @@
     <string name="no_routine">There isn\'t any routine to show</string>
     <string name="next">Next</string>
     <string name="new_routine_menu_next_desc">Go to the next step</string>
-    <string name="new_routine_name_hint">Give a name to the new routine</string>
+    <string name="new_routine_name_hint">Give a name to the routine</string>
     <string name="create">Create</string>
     <string name="new_routine_menu_create_desc">Create the routine</string>
     <string-array name="days_array">
@@ -50,9 +50,22 @@
     </string-array>
     <string name="label_rest_day">Rest day</string>
     <string name="workout_name_hint">Workout name</string>
-    <string name="add_exercise_label">Add exercise</string>
+    <string name="add_exercise_label">Add Exercise</string>
     <string name="add_exercise_label_btn_desc">Add a new exercise</string>
     <string name="add_exercise_hint">Add an exercise</string>
     <string name="rest">Rest</string>
     <string name="rest_day_msg">Rest day!\n\nTry to move around a bit to keep your body active!</string>
+    <string name="ok">Ok</string>
+    <string name="new_exercise_menu_ok_desc">Add this exercise</string>
+    <string name="new_exercise_name_hint">Exercise name</string>
+    <string name="new_exercise_reps_hint">Repetitions</string>
+    <string name="new_exercise_sets_hint">Sets</string>
+    <string name="value_higher_than_zero">Fields value must be higher than 0</string>
+    <string name="error_workout_name_empty">Every workout must have a name or be a rest day</string>
+    <string name="error_exercises_list_empty">Every workout must have exercises or be a rest day</string>
+    <string name="options_label">Options</string>
+    <string name="copy_label">Copy</string>
+    <string name="clear_label">Clear</string>
+    <string name="copy_to_label">Copy to</string>
+    <string name="cancel_label">Cancel</string>
 </resources>

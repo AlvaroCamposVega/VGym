@@ -1,4 +1,8 @@
 <resources>
+    <style name="NoStatusBar" parent="Theme.MyApp">
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
     <style name="LightInputOverDarkBg" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense">
         <item name="boxStrokeColor">@color/primaryL</item>
         <item name="android:textColorHint">#99ffffff</item>
@@ -8,6 +12,14 @@
     <style name="IconStyle" parent="Theme.MyApp">
         <item name="android:tint">?attr/colorOnSurface</item>
         <item name="android:alpha">0.5</item>
+    </style>
+    
+    <style name="IconFavourite" parent="Theme.MyApp">
+        <item name="android:tint">?attr/colorSecondary</item>
+    </style>
+
+    <style name="WorkoutDay" parent="Theme.MyApp">
+        <item name="android:textColor">?attr/colorPrimary</item>
     </style>
 
     <style name="FullScreenDialog" parent="Theme.MyApp">

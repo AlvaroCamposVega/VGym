@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.EditWorkoutFragment">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/fragmentTopAppBar"
+            style="@style/Widget.MaterialComponents.Toolbar.Primary"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            app:title="@string/placeholder" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <TextView
+            android:id="@+id/editWorkoutHint"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/add_exercise_hint"
+            android:layout_gravity="center"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:fontFamily="@font/raleway_medium"
+            style="@style/IconStyle">
+        </TextView>
+
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/editWorkoutRestSwitch"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:checked="false"
+            android:fontFamily="@font/raleway_medium"
+            android:text="@string/label_rest_day"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            android:layout_gravity="top|center"/>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/editWorkoutNameLayout"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|center"
+            android:layout_marginTop="120dp"
+            app:endIconMode="clear_text"
+            android:hint="@string/workout_name_hint">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/editWorkoutName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="text" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/fragmentRecyclerView"
+            android:name="com.alvaro.vgym.fragments.EditWorkoutFragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top"
+            android:layout_marginTop="200dp"
+            app:layoutManager="LinearLayoutManager"
+            tools:listitem="@layout/fragment_edit_workout_adapter" />
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/editWorkoutAddBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="16dp"
+            android:layout_gravity="bottom|center"
+            android:contentDescription="@string/add_exercise_label_btn_desc"
+            android:text="@string/add_exercise_label"
+            app:icon="@drawable/ic_add_black_18dp" />
+
+        <LinearLayout
+            android:id="@+id/editWorkoutRestMsg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_gravity="center_vertical"
+            android:visibility="gone">
+            <ImageView
+                android:layout_width="152dp"
+                android:layout_height="152dp"
+                android:src="@drawable/ic_mood_48dp"
+                android:tint="@color/restDay"
+                android:layout_gravity="center">
+            </ImageView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+                android:fontFamily="@font/raleway_medium"
+                android:layout_margin="@dimen/text_margin"
+                android:text="@string/rest_day_msg"
+                android:alpha="0.5">
+            </TextView>
+        </LinearLayout>
+    </FrameLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

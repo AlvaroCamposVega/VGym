@@ -8,9 +8,9 @@ import android.text.method.LinkMovementMethod;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.alvaro.vgym.services.FirebaseService;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
-import com.google.firebase.auth.FirebaseAuth;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -29,7 +29,7 @@ public class LoginActivity extends AppCompatActivity
     @BindView(R.id.loginUnsplashAttribution)
     TextView unsplashAttribution;
 
-    private FirebaseAuth fbAuth;
+    private FirebaseService fbService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -54,16 +54,14 @@ public class LoginActivity extends AppCompatActivity
                 ).show();
             // Si todos los campos están rellenos se relaiza el inicio de sesión
             } else
-            {
-                // Obtenemos la instancia de Firebase Auth
-                fbAuth = FirebaseAuth.getInstance();
+            {   // Obtenemos la instancia de Firebase Auth
+                fbService = FirebaseService.getInstance();
                 // Iniciamos sesión con los credenciales que ha introducido el ususario
-                fbAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(
+                fbService.signInWithEmailAndPassword(email, password).addOnCompleteListener(
                     this, task -> {
                         // Si el inicio de sesión falla
                         if (!task.isSuccessful())
-                        {
-                            // Indicamos al usuario que los credenciales son incorrectos
+                        {   // Indicamos al usuario que los credenciales son incorrectos
                             Snackbar.make(
                                 loginBtn,
                                 R.string.login_fail,

@@ -14,8 +14,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.alvaro.vgym.services.FirebaseService;
 import com.google.android.material.snackbar.Snackbar;
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import butterknife.BindView;
@@ -35,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity
     @BindView(R.id.welcomeUnsplashAttribution)
     TextView unsplashAttribution;
 
-    private FirebaseAuth fbAuth;
+    private FirebaseService fbService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -45,7 +45,7 @@ public class WelcomeActivity extends AppCompatActivity
         // Enlazar la actividad con ButterKnife
         ButterKnife.bind(this);
         // Obtenemos la instancia de FirebaseAuth
-        fbAuth = FirebaseAuth.getInstance();
+        fbService = FirebaseService.getInstance();
         // El botón de login lleva a la pantalla de login
         loginBtn.setOnClickListener(v -> {
             Intent loginIntent = new Intent(this, LoginActivity.class);
@@ -101,7 +101,7 @@ public class WelcomeActivity extends AppCompatActivity
     {
         super.onStart();
         // Obtenemos el usuario que tenga una sesión iniciada en el dispositivo
-        FirebaseUser currentUser = fbAuth.getCurrentUser();
+        FirebaseUser currentUser = fbService.getCurrentUser();
         // Si tiene una sesión iniciada vamos directamente a la pantalla principal
         if (currentUser != null)
         {

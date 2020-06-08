@@ -1,32 +1,29 @@
 package com.alvaro.vgym.fragments;
 
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
+
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import com.alvaro.vgym.R;
+import com.alvaro.vgym.model.Routine;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 /**
  * Una simple subclase {@link Fragment}.
- * Usa el método {@link BottomNavigation#newInstance} para crear
+ * Usa el método {@link BottomNavigationFragment#newInstance} para crear
  * una instancia de este fragmento.
  */
-public class BottomNavigation extends Fragment
+public class BottomNavigationFragment extends Fragment
 {
     public static final String TAG = "bottomNavigation";
-
     // Constructor público vacío requerido.
-    public BottomNavigation() { }
+    public BottomNavigationFragment() { }
 
     /**
      * Usa este método para crear una nueva instancia de
@@ -34,7 +31,7 @@ public class BottomNavigation extends Fragment
      *
      * @return Una nueva instancia de fragment BottomNavigation.
      */
-    public static BottomNavigation newInstance() { return new BottomNavigation(); }
+    public static BottomNavigationFragment newInstance() { return new BottomNavigationFragment(); }
 
     @Override
     public void onCreate(Bundle savedInstanceState) { super.onCreate(savedInstanceState); }
@@ -70,10 +67,16 @@ public class BottomNavigation extends Fragment
                     Log.i("VGym", "Click en Perfil!");
                     break;
                 case R.id.mnuBottomNavNewRoutine:
-                    NewRoutineDialogFragment dialog = NewRoutineDialogFragment.newInstance();
+                    RoutineDialogFragment routineDialog = RoutineDialogFragment.newInstance(
+                        new Routine(getContext())
+                    );
+
                     FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-                    dialog.show(fragmentManager, NewRoutineDialogFragment.TAG);
+
+                    routineDialog.show(fragmentManager, RoutineDialogFragment.TAG);
+
                     result = false;
+
                     break;
             }
 

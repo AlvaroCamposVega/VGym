@@ -3,14 +3,11 @@ package com.alvaro.vgym.fragments;
 import android.content.Context;
 import android.os.Bundle;
 
-import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,15 +17,16 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.alvaro.vgym.R;
-import com.alvaro.vgym.adapters.ExerciseAdapter;
-import com.alvaro.vgym.fragments.dummy.DummyContent;
-import com.alvaro.vgym.fragments.dummy.DummyContent.DummyItem;
+import com.alvaro.vgym.adapters.EditWorkoutAdapter;
 import com.alvaro.vgym.model.Exercise;
 import com.alvaro.vgym.model.Workout;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton;
 import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
+
+import java.util.List;
 
 /**
  * A fragment representing a list of Items.
@@ -36,18 +34,26 @@ import com.google.android.material.textfield.TextInputLayout;
  * Activities containing this fragment MUST implement the {@link OnExerciseSelectedListener}
  * interface.
  */
-public class ExercisesFragment extends Fragment
+public class EditWorkoutFragment extends Fragment
 {
     public static final String TAG = "exercisesFragment";
     private static final String ARG_WORKOUT = "workout";
 
     private Workout workout = null;
-    private SwitchMaterial restSwitch;
-    private TextInputLayout workoutNameEditTextLayout;
-    private TextInputEditText workoutNameEditText;
-    private ExtendedFloatingActionButton addBtn;
-    private TextView hint;
+    private MaterialToolbar topAppBar;
+
+    private EditWorkoutAdapter adapter;
+
+
     private View exercisesList;
+
+    private SwitchMaterial restSwitch;
+    private TextInputLayout nameInputLayout;
+    private TextInputEditText nameInput;
+    private ExtendedFloatingActionButton addBtn;
+
+    private TextView hint;
+
     private LinearLayout restMsg;
 
     private OnExerciseSelectedListener listener;
@@ -56,12 +62,12 @@ public class ExercisesFragment extends Fragment
      * Mandatory empty constructor for the fragment manager to instantiate the
      * fragment (e.g. upon screen orientation changes).
      */
-    public ExercisesFragment() { }
+    public EditWorkoutFragment() { }
 
     @SuppressWarnings("unused")
-    public static ExercisesFragment newInstance(Workout workout)
+    public static EditWorkoutFragment newInstance(Workout workout)
     {
-        ExercisesFragment fragment = new ExercisesFragment();
+        EditWorkoutFragment fragment = new EditWorkoutFragment();
         Bundle args = new Bundle();
         args.putSerializable(ARG_WORKOUT, workout);
         fragment.setArguments(args);
@@ -77,9 +83,6 @@ public class ExercisesFragment extends Fragment
         {
             workout = (Workout) getArguments().getSerializable(ARG_WORKOUT);
         }
-        // Establecemos la top app bar cuando el fragmento ya se haya creado
-        TopAppBar topAppBar = (TopAppBar) getParentFragment();
-        topAppBar.swapToExercisesTopAppBar(this);
     }
 
     @Override
@@ -90,25 +93,31 @@ public class ExercisesFragment extends Fragment
     )
     {
         View view = inflater.inflate(
-            R.layout.fragment_exercises_list,
+            R.layout.fragment_edit_workout_layout,
             container,
             false
         );
 
-        exercisesList = view.findViewById(R.id.exercisesList);
+        exercisesList = view.findViewById(R.id.fragmentRecyclerView);
 
-        addBtn = view.findViewById(R.id.exercisesListAddBtn);
-        workoutNameEditTextLayout = view.findViewById(R.id.exercisesListNameLayout);
-        workoutNameEditText = view.findViewById(R.id.exercisesListName);
-        restSwitch = view.findViewById(R.id.exercisesListRestSwitch);
-        hint = view.findViewById(R.id.exercisesListHint);
-        restMsg = view.findViewById(R.id.exercisesListRestMsg);
+        topAppBar = view.findViewById(R.id.fragmentTopAppBar);
+        topAppBar.setTitle(workout.getDay());
+        setTopAppBarListener();
 
-        setAddBtnListener();
+        nameInputLayout = view.findViewById(R.id.editWorkoutNameLayout);
+        nameInput = view.findViewById(R.id.editWorkoutName);
         // Actualiza el valor del campo nombre del entrenamiento
-        workoutNameEditText.setText(workout.getName());
-        // Establecemos el listener del switch y actualizamos su valor
-        initRestSwitch();
+        nameInput.setText(workout.getName());
+
+        restSwitch = view.findViewById(R.id.editWorkoutRestSwitch);
+        initRestSwitch(); // Inicializa el componente Switch
+
+        hint = view.findViewById(R.id.editWorkoutHint);
+
+        restMsg = view.findViewById(R.id.editWorkoutRestMsg);
+
+        addBtn = view.findViewById(R.id.editWorkoutAddBtn);
+        setAddBtnListener(); // Establece el botón de añadir ejercicio
         // Si hay ejercicios en el entrenamiento o es día de descanso quitamos el texto informativo
         if (!workout.getExercises().isEmpty() || workout.isRestDay())
         {
@@ -118,10 +127,10 @@ public class ExercisesFragment extends Fragment
         // y hacemos visible el mensaje de descanso
         if (workout.isRestDay())
         {
-            workoutNameEditTextLayout.setVisibility(View.INVISIBLE);
+            nameInputLayout.setVisibility(View.INVISIBLE);
             exercisesList.setVisibility(View.INVISIBLE);
-            addBtn.hide();
             restMsg.setVisibility(View.VISIBLE);
+            addBtn.hide();
         }
         // Set the adapter
         if (exercisesList instanceof RecyclerView)
@@ -129,7 +138,9 @@ public class ExercisesFragment extends Fragment
             Context context = view.getContext();
             RecyclerView recyclerView = (RecyclerView) exercisesList;
             recyclerView.setLayoutManager(new LinearLayoutManager(context));
-            recyclerView.setAdapter(new ExerciseAdapter(workout.getExercises(), listener));
+
+            adapter = new EditWorkoutAdapter(workout.getExercises(), listener);
+            recyclerView.setAdapter(adapter);
         }
 
         return view;
@@ -160,13 +171,37 @@ public class ExercisesFragment extends Fragment
         listener = null;
     }
 
-    private void setAddBtnListener()
-    {
-        addBtn.setOnClickListener(v -> {
-            Log.i("VGym", "Click en Añadir Ejercicio!");
+    private void setTopAppBarListener()
+    {   // Listener del botón de navegar a la pantalla anterior
+        topAppBar.setNavigationOnClickListener(v -> {
+            // Establecemos el nombre del entrenamiento
+            workout.setName(nameInput.getText().toString());
+            // Retroceder a la pantalla de la lista de días
+            getFragmentManager().popBackStack();
         });
     }
 
+    /**
+     * Establece el listener del botón añadir ejercicio.
+     */
+    private void setAddBtnListener()
+    {
+        addBtn.setOnClickListener(v -> {
+            disableDialog();
+
+            ExerciseDialogFragment dialog = ExerciseDialogFragment.newInstance(
+                new Exercise(workout.getExercises().size(), "", 0, 0)
+            );
+
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
+
+            dialog.show(fragmentManager, ExerciseDialogFragment.TAG);
+        });
+    }
+
+    /**
+     * Inicializa el componente Switch.
+     */
     private void initRestSwitch()
     {
         restSwitch.setChecked(workout.isRestDay());
@@ -176,13 +211,17 @@ public class ExercisesFragment extends Fragment
 
             if (restSwitch.isChecked())
             {
+                nameInputLayout.setEnabled(false);
+                exercisesList.setEnabled(false);
+
                 Animation fadeOut = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
                 // Animación y callback para el EditTextLayout
-                workoutNameEditTextLayout.startAnimation(fadeOut);
-                workoutNameEditTextLayout.postOnAnimation(() -> {
-                    workoutNameEditTextLayout.setVisibility(View.INVISIBLE);
+                nameInputLayout.startAnimation(fadeOut);
+                nameInputLayout.postOnAnimation(() -> {
+                    nameInputLayout.setVisibility(View.INVISIBLE);
                     // Hacemos un fade in al mensaje de descanso
                     Animation fadeIn = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
+
                     restMsg.startAnimation(fadeIn);
                     restMsg.postOnAnimation(() -> restMsg.setVisibility(View.VISIBLE));
                 });
@@ -201,15 +240,19 @@ public class ExercisesFragment extends Fragment
             else
             {
                 Animation fadeOut = AnimationUtils.loadAnimation(getContext(), R.anim.fade_out);
+
                 restMsg.startAnimation(fadeOut);
                 restMsg.postOnAnimation(() -> {
                     restMsg.setVisibility(View.GONE);
+
+                    nameInputLayout.setEnabled(true);
+                    exercisesList.setEnabled(true);
                     // Hacemos fade in a el resto de vistas
                     Animation fadeIn = AnimationUtils.loadAnimation(getContext(), R.anim.fade_in);
                     // Animación y callback para el EditTextLayout
-                    workoutNameEditTextLayout.startAnimation(fadeIn);
-                    workoutNameEditTextLayout.postOnAnimation(
-                        () -> workoutNameEditTextLayout.setVisibility(View.VISIBLE)
+                    nameInputLayout.startAnimation(fadeIn);
+                    nameInputLayout.postOnAnimation(
+                        () -> nameInputLayout.setVisibility(View.VISIBLE)
                     );
                     // RecyclerView
                     exercisesList.startAnimation(fadeIn);
@@ -227,14 +270,63 @@ public class ExercisesFragment extends Fragment
         });
     }
 
-    public String getWorkoutDay() { return workout.getDay(); }
-
     /**
-     * Establece el nombre del entrenamiento desde el campo nombre del entrenamiento.
+     * Añade un ejercicio a la lista de ejercicios.
+     *
+     * @param exercise El ejercicio.
      */
-    public void setExerciseNameFromTextField()
+    public void addExercise(Exercise exercise)
     {
-        workout.setName(workoutNameEditText.getText().toString());
+        workout.getExercises().add(exercise);
+        // Actualizamos el estado del texto informativo
+        if (!workout.getExercises().isEmpty()) { hint.setVisibility(View.GONE); }
+    }
+
+    public void removeExercise(Exercise exercise)
+    {
+        List<Exercise> exercises = workout.getExercises();
+        Exercise highestId = exercises.get(0);
+        // Obtenemos el ejercicio con la id más grande
+        for (Exercise listExercise : exercises)
+        {
+            if (listExercise.getId() > highestId.getId()) { highestId = listExercise; }
+        }
+
+        if (exercise.equals(highestId)) { exercises.remove(exercise); }
+        else
+        {
+            int id = exercise.getId();
+            exercises.remove(exercise);
+            highestId.setId(id);
+        }
+
+        adapter.notifyDataSetChanged();
+        // Actualizamos el estado del texto informativo
+        if (workout.getExercises().isEmpty()) { hint.setVisibility(View.VISIBLE); }
+    }
+
+    public void enableDialogAndUpdateData()
+    {   // Notificamos al adaptador que se actualice ya que se han cambiado los datos.
+        adapter.notifyDataSetChanged();
+
+        setTopAppBarListener();
+        adapter.setEnabled(true);
+        exercisesList.setEnabled(true);
+        restSwitch.setEnabled(true);
+        addBtn.setEnabled(true);
+
+        if (nameInputLayout.getVisibility() == View.VISIBLE) { nameInputLayout.setEnabled(true); }
+    }
+
+    public void disableDialog()
+    {
+        topAppBar.setNavigationOnClickListener(null);
+        adapter.setEnabled(false);
+        exercisesList.setEnabled(false);
+        restSwitch.setEnabled(false);
+        addBtn.setEnabled(false);
+
+        if (nameInputLayout.getVisibility() == View.VISIBLE) { nameInputLayout.setEnabled(false); }
     }
 
     /**
@@ -249,7 +341,7 @@ public class ExercisesFragment extends Fragment
      */
     public interface OnExerciseSelectedListener
     {
-        void onExerciseSelected(Exercise exercise);
-        void onDeleteExercise(Exercise exercise);
+        void onExerciseSelected(Exercise exercise, boolean enabled);
+        void onDeleteExercise(Exercise exercise, boolean enabled);
     }
 }

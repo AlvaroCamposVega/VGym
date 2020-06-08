@@ -1,29 +1,31 @@
 package com.alvaro.vgym.adapters;
 
-import androidx.recyclerview.widget.RecyclerView;
-
+import android.view.ContextMenu;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.alvaro.vgym.R;
-import com.alvaro.vgym.fragments.WorkoutDayFragment.OnWorkoutDaySelectedListener;
+import com.alvaro.vgym.fragments.WorkoutListFragment;
+import com.alvaro.vgym.fragments.WorkoutListFragment.OnWorkoutSelectedListener;
 import com.alvaro.vgym.model.Workout;
 
 import java.util.List;
 
 /**
  * {@link RecyclerView.Adapter} that can display a {@link Workout} and makes a call to the
- * specified {@link OnWorkoutDaySelectedListener}.
+ * specified {@link OnWorkoutSelectedListener}.
  */
-public class WorkoutDayAdapter extends RecyclerView.Adapter<WorkoutDayAdapter.ViewHolder>
+public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.ViewHolder>
 {
 
     private final List<Workout> workouts;
-    private final OnWorkoutDaySelectedListener interactionListener;
+    private final WorkoutListFragment.OnWorkoutSelectedListener interactionListener;
 
-    public WorkoutDayAdapter(List<Workout> workoutList, OnWorkoutDaySelectedListener listener)
+    public WorkoutListAdapter(List<Workout> workoutList, OnWorkoutSelectedListener listener)
     {
         workouts = workoutList;
         interactionListener = listener;
@@ -33,7 +35,7 @@ public class WorkoutDayAdapter extends RecyclerView.Adapter<WorkoutDayAdapter.Vi
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(
-            R.layout.fragment_workout_day,
+            R.layout.fragment_workout_list_adapter,
             parent,
             false
         );
@@ -50,26 +52,23 @@ public class WorkoutDayAdapter extends RecyclerView.Adapter<WorkoutDayAdapter.Vi
         if (workouts.get(position).isRestDay())
         {
             holder.workoutName.setText(holder.workoutView.getResources().getString(R.string.rest));
-        }// Si el nombre está vacío ponemos un guión como nombre
-        else if (workouts.get(position).getName().trim().isEmpty())
-        {
-            holder.workoutName.setText("-");
-        }// Si no está vacío ponemos el nombre del entrenamiento
-        else { holder.workoutName.setText(workouts.get(position).getName()); }
 
-        if (workouts.get(position).isRestDay())
-        {
             holder.workoutView.setBackgroundColor(
                 holder.workoutView.getResources().getColor(R.color.restDay)
             );
-        }
+        } // Si el nombre está vacío ponemos un guión como nombre
+        else if (workouts.get(position).getName().trim().isEmpty())
+        {
+            holder.workoutName.setText("-");
+        } // Si no está vacío ponemos el nombre del entrenamiento
+        else { holder.workoutName.setText(workouts.get(position).getName()); }
 
         holder.workoutView.setOnClickListener(v -> {
             if (null != interactionListener)
             {
                 // Notify the active callbacks interface (the activity, if the
                 // fragment is attached to one) that an item has been selected.
-                interactionListener.onWorkoutDaySelected(holder.workout);
+                interactionListener.onWorkoutSelected(holder.workout);
             }
         });
     }
@@ -78,6 +77,7 @@ public class WorkoutDayAdapter extends RecyclerView.Adapter<WorkoutDayAdapter.Vi
     public int getItemCount() { return workouts.size(); }
 
     public class ViewHolder extends RecyclerView.ViewHolder
+        implements View.OnCreateContextMenuListener
     {
         public final View workoutView;
         public final TextView workoutDay;
@@ -88,11 +88,35 @@ public class WorkoutDayAdapter extends RecyclerView.Adapter<WorkoutDayAdapter.Vi
         {
             super(view);
             workoutView = view;
-            workoutDay = view.findViewById(R.id.workoutDay);
-            workoutName = view.findViewById(R.id.workoutName);
+            workoutDay = view.findViewById(R.id.adapterWorkoutDay);
+            workoutName = view.findViewById(R.id.adapterWorkoutName);
+
+            view.setOnCreateContextMenuListener(this);
         }
 
         @Override
         public String toString() { return super.toString() + " '" + workoutName.getText() + "'"; }
+
+        @Override
+        public void onCreateContextMenu(
+            ContextMenu menu,
+            View v,
+            ContextMenu.ContextMenuInfo menuInfo
+        )
+        {   // API 23 AND ABOVE
+            menu.setHeaderTitle(R.string.options_label);
+
+            menu.add(0, workout.getId(), 0, R.string.copy_label)
+            .setOnMenuItemClickListener(item -> {
+                interactionListener.onCopyWorkoutSelected(item.getItemId());
+                return true;
+            });
+
+            menu.add(0, workout.getId(), 0, R.string.clear_label)
+            .setOnMenuItemClickListener(item -> {
+                interactionListener.onClearWorkoutSelected(item.getItemId());
+                return true;
+            });
+        }
     }
 }

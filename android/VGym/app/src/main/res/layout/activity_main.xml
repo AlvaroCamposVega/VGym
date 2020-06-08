@@ -1,59 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<RelativeLayout
     android:id="@+id/mainRootView"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
+
     <FrameLayout
-        android:id="@+id/mainTopAppBar"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-    </FrameLayout>
-
-    <!--<fragment
-        android:name="com.alvaro.vgym.fragments.WorkoutFragment"
-        android:id="@+id/mainWorkout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainTopAppBar">
-    </fragment>-->
-
-    <!--<androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/mainRoutine"
+        android:id="@+id/mainWorkoutFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/mainTopAppBar">
-    </androidx.recyclerview.widget.RecyclerView>-->
-
-    <!--<TextView
-        android:id="@+id/mainFeedbackText"
-        android:text="@string/loading_data"
-        android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
-        android:alpha="0.5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-    </TextView>-->
+        android:layout_alignParentTop="true"
+        android:layout_above="@id/mainBottomNavigation">
+    </FrameLayout>
 
     <FrameLayout
         android:id="@+id/mainBottomNavigation"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        android:layout_alignParentBottom="true">
     </FrameLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+</RelativeLayout>

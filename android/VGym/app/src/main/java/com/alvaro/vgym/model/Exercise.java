@@ -1,9 +1,14 @@
 package com.alvaro.vgym.model;
 
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
+
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.util.Objects;
 
 public class Exercise implements Serializable
 {
@@ -48,4 +53,22 @@ public class Exercise implements Serializable
     public int getReps() { return reps; }
 
     public void setReps(int reps) { this.reps = reps; }
+
+    @Override
+    public boolean equals(Object o)
+    {
+        boolean equals = false;
+
+        if (o instanceof Exercise)
+        {
+            Exercise obj = (Exercise) o;
+            equals = this.id == obj.getId();
+        }
+
+        return equals;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    @Override
+    public int hashCode() { return Objects.hash(id); }
 }

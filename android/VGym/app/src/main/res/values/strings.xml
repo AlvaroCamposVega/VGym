@@ -36,7 +36,7 @@
     <string name="no_routine">No hay ninguna rutina que mostrar</string>
     <string name="next">Siguiente</string>
     <string name="new_routine_menu_next_desc">Ir al siguiente paso</string>
-    <string name="new_routine_name_hint">Pon un nombre a la nueva rutina</string>
+    <string name="new_routine_name_hint">Pon un nombre a la rutina</string>
     <string name="placeholder" translatable="false">Placeholder</string>
     <string name="create">Crear</string>
     <string name="new_routine_menu_create_desc">Crear la rutina</string>
@@ -51,9 +51,22 @@
     </string-array>
     <string name="label_rest_day">Día de descanso</string>
     <string name="workout_name_hint">Nombre del entrenamiento</string>
-    <string name="add_exercise_label">Añadir ejercicio</string>
+    <string name="add_exercise_label">Añadir Ejercicio</string>
     <string name="add_exercise_label_btn_desc">Añadir un nuevo ejercicio</string>
     <string name="add_exercise_hint">Añade un ejercicio</string>
     <string name="rest">Descanso</string>
     <string name="rest_day_msg">¡Día de descanso!\n\n¡Procura siempre moverte un poco aunque toque descansar!</string>
+    <string name="ok">Confirmar</string>
+    <string name="new_exercise_menu_ok_desc">Añadir este ejercicio</string>
+    <string name="new_exercise_name_hint">Nombre del ejercicio</string>
+    <string name="new_exercise_reps_hint">Repeticiones</string>
+    <string name="new_exercise_sets_hint">Series</string>
+    <string name="value_higher_than_zero">El valor de los campos debe ser mayor que 0</string>
+    <string name="error_workout_name_empty">Todos los entrenamientos tienen que tener un nombre o ser día de descanso</string>
+    <string name="error_exercises_list_empty">Todos los entrenamientos tienen que tener ejercicios o ser día de descanso</string>
+    <string name="options_label">Opciones</string>
+    <string name="copy_label">Copiar</string>
+    <string name="clear_label">Limpiar</string>
+    <string name="copy_to_label">Copiar a</string>
+    <string name="cancel_label">Cancelar</string>
 </resources>

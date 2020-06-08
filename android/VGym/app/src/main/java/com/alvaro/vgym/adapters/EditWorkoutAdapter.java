@@ -9,8 +9,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.alvaro.vgym.R;
-import com.alvaro.vgym.fragments.ExercisesFragment.OnExerciseSelectedListener;
-import com.alvaro.vgym.fragments.dummy.DummyContent.DummyItem;
+import com.alvaro.vgym.fragments.EditWorkoutFragment.OnExerciseSelectedListener;
 import com.alvaro.vgym.model.Exercise;
 
 import java.util.List;
@@ -19,23 +18,24 @@ import java.util.List;
  * {@link RecyclerView.Adapter} that can display a {@link Exercise} and makes a call to the
  * specified {@link OnExerciseSelectedListener}.
  */
-public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHolder>
+public class EditWorkoutAdapter extends RecyclerView.Adapter<EditWorkoutAdapter.ViewHolder>
 {
-
     private final List<Exercise> exercises;
     private final OnExerciseSelectedListener interactionListener;
+    private boolean enabled;
 
-    public ExerciseAdapter(List<Exercise> exerciseList, OnExerciseSelectedListener listener)
+    public EditWorkoutAdapter(List<Exercise> exerciseList, OnExerciseSelectedListener listener)
     {
         exercises = exerciseList;
         interactionListener = listener;
+        enabled = true;
     }
 
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
     {
         View view = LayoutInflater.from(parent.getContext()).inflate(
-            R.layout.fragment_exercises,
+            R.layout.fragment_edit_workout_adapter,
             parent,
             false
         );
@@ -57,20 +57,22 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
             {
                 // Notify the active callbacks interface (the activity, if the
                 // fragment is attached to one) that an item has been selected.
-                interactionListener.onExerciseSelected(holder.exercise);
+                interactionListener.onExerciseSelected(holder.exercise, enabled);
             }
         });
 
         holder.deleteBtn.setOnClickListener(v -> {
             if (null != interactionListener)
             {
-                interactionListener.onDeleteExercise(holder.exercise);
+                interactionListener.onDeleteExercise(holder.exercise, enabled);
             }
         });
     }
 
     @Override
     public int getItemCount() { return exercises.size(); }
+
+    public void setEnabled(boolean enabled) { this.enabled = enabled; }
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
@@ -84,9 +86,9 @@ public class ExerciseAdapter extends RecyclerView.Adapter<ExerciseAdapter.ViewHo
         {
             super(view);
             exerciseView = view;
-            deleteBtn = view.findViewById(R.id.exerciseDeleteBtn);
-            exerciseName = view.findViewById(R.id.exerciseName);
-            exerciseInfo = view.findViewById(R.id.exerciseInfo);
+            deleteBtn = view.findViewById(R.id.adapterExerciseDeleteBtn);
+            exerciseName = view.findViewById(R.id.adapterExerciseName);
+            exerciseInfo = view.findViewById(R.id.adapterExerciseInfo);
         }
 
         @Override

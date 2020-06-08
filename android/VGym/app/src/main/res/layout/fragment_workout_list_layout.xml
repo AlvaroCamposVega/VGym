@@ -6,7 +6,7 @@
     android:id="@+id/fragmentCoordinatorLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.TopAppBar">
+    tools:context=".fragments.WorkoutListFragment">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -17,19 +17,18 @@
             style="@style/Widget.MaterialComponents.Toolbar.Primary"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:menu="@menu/main_top_app_bar"
-            app:title="@string/app_name" />
+            app:menu="@menu/workout_list_top_app_bar"
+            app:navigationIcon="@drawable/ic_arrow_back_black_24dp"
+            app:title="@string/placeholder" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <!-- Note: A RecyclerView can also be used -->
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/fragmentMainTopAppBarContent"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragmentRecyclerView"
+        android:name="com.alvaro.vgym.fragments.WorkoutListFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior="@string/appbar_scrolling_view_behavior">
-
-        <!-- Scrollable content -->
-
-    </androidx.core.widget.NestedScrollView>
+        app:layoutManager="LinearLayoutManager"
+        tools:listitem="@layout/fragment_workout_list_adapter"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

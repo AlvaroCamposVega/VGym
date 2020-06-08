@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/mnuExerciseDialogOk"
+        android:title="@string/ok"
+        android:contentDescription="@string/new_exercise_menu_ok_desc"
+        app:showAsAction="ifRoom" />
+</menu>

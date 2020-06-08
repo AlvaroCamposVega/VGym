@@ -8,7 +8,7 @@
     android:background="?android:attr/selectableItemBackground">
 
     <TextView
-        android:id="@+id/workoutDay"
+        android:id="@+id/adapterExerciseName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body1"
@@ -16,7 +16,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/workoutName"
+        android:id="@+id/adapterExerciseInfo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="3dp"
@@ -24,15 +24,17 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Body2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/workoutDay" />
+        app:layout_constraintTop_toBottomOf="@+id/adapterExerciseName" />
 
     <ImageView
+        android:id="@+id/adapterExerciseDeleteBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginRight="6dp"
-        android:src="@drawable/ic_chevron_right_black_36dp"
-        style="@style/IconStyle"
+        android:src="@drawable/ic_delete_black_24dp"
+        android:tint="@color/errorL"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="?android:attr/selectableItemBackground" />
 </androidx.constraintlayout.widget.ConstraintLayout>

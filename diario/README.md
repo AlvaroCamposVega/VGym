@@ -209,6 +209,7 @@ Se ha refactorizado todo el código de la aplicación (cambiado nombres, agregad
 
 ## Semana 8 de Mayo 2020
 La aplicación se ha desarrollado en su totalidad habiendo finalizado el diálogo de nueva rutina, la pantalla de inicio y la pantalla de perfil, además, se ha creado la página web para esta la cual está disponible en el enlace en la sección "Página web".
+No se ha llegado a desarrollar el "modo offline" ya que después de darle muchas vueltas llegué a la conclusión de que no era una idea muy viable actualmente y ha sido reemplazado por una memoria caché para recuperar las nuevas rutinas descartadas.
 
 **Recursos utilizados:**
 

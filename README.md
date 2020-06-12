@@ -11,7 +11,7 @@ En el vídeo explicativo no se hace referencia pero la aplicación dispone de te
 
 # [Vídeo Exposición del Proyecto](https://youtu.be/KjkWwK8VBHo)
 
-# [APK](https://github.com/AlvaroCamposVega/VGym/tree/master/android/apk).
+# [APK](https://github.com/AlvaroCamposVega/VGym/tree/master/android/apk)
 
 # [Diario](https://github.com/AlvaroCamposVega/VGym/blob/master/diario)
 

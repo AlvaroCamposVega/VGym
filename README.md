@@ -10,6 +10,8 @@ La apk de la aplicación la puedes encontrar en android/apk/vgym.apk.
 
 [Vídeo Explicativo](https://youtu.be/uRN8YME_WPk)
 
+# [Vídeo Exposición del Proyecto](https://youtu.be/KjkWwK8VBHo)
+
 # [Diario](https://github.com/AlvaroCamposVega/VGym/blob/master/diario)
 
 # Página Web

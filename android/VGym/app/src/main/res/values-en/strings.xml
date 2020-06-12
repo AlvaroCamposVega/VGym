@@ -88,4 +88,5 @@
     <string name="reminder">Reminder</string>
     <string name="reminder_desc">App reminders</string>
     <string name="reminder_msg">Ready to give it all? Today it\'s</string>
+    <string name="password_invalid_size">Minimum of 6 characters</string>
 </resources>

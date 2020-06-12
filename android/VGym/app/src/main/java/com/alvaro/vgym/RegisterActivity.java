@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.text.method.LinkMovementMethod;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -29,6 +30,9 @@ public class RegisterActivity extends AppCompatActivity
 
     @BindView(R.id.registerSurnameField)
     TextInputEditText surnameField;
+
+    @BindView(R.id.registerPasswordLayout)
+    TextInputLayout passwordLayout;
 
     @BindView(R.id.registerPasswordField)
     TextInputEditText passwordField;
@@ -79,6 +83,12 @@ public class RegisterActivity extends AppCompatActivity
             else if (!password.equals(repeatPassword))
             {
                 repeatPasswordLayout.setError(getString(R.string.password_not_equal));
+                passwordLayout.setError(null);
+            }
+            else if (password.length() < 6)
+            {
+                passwordLayout.setError(getString(R.string.password_invalid_size));
+                repeatPasswordLayout.setError(null);
             }
             else
             {
@@ -114,8 +124,20 @@ public class RegisterActivity extends AppCompatActivity
                 if (!password.equals(repeatPassword))
                 {
                     repeatPasswordLayout.setError(getString(R.string.password_not_equal));
+                    passwordLayout.setError(null);
+                    registerBtn.setEnabled(false);
                 }
-                else { repeatPasswordLayout.setError(null); }
+                else if (password.length() < 6)
+                {
+                    passwordLayout.setError(getString(R.string.password_invalid_size));
+                    repeatPasswordLayout.setError(null);
+                    registerBtn.setEnabled(false);
+                }
+                else
+                {
+                    repeatPasswordLayout.setError(null);
+                    registerBtn.setEnabled(true);
+                }
             }
         });
     }
@@ -135,6 +157,7 @@ public class RegisterActivity extends AppCompatActivity
                 // Si la cuenta no se crea correctamente
                 if (!task.isSuccessful())
                 {
+                    Log.i("VGym", task.getException().toString());
                     Snackbar.make(
                         registerBtn,
                         R.string.create_fbAccount_error,

@@ -89,4 +89,5 @@
     <string name="reminder">Recordatorio</string>
     <string name="reminder_desc">Recordatorios de la aplicación</string>
     <string name="reminder_msg">¡A machacar esos músculos! ¡Hoy toca</string>
+    <string name="password_invalid_size">Mínimo 6 caracteres</string>
 </resources>

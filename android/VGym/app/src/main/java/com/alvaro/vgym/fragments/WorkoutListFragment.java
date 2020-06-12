@@ -8,7 +8,6 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -40,13 +39,10 @@ public class WorkoutListFragment extends Fragment
 {
     public static final String TAG = "workoutDayFragment";
     private static final String ARG_ROUTINE = "routine";
-    /*public static final int CTX_MNU_COPY = 0;
-    public static final int CTX_MNU_CLEAR = 1;*/
 
     private Routine routine;
     private MaterialToolbar topAppBar;
     private boolean editMode;
-    private Routine oldRoutine;
 
     private WorkoutListAdapter adapter;
 
@@ -112,13 +108,7 @@ public class WorkoutListFragment extends Fragment
             recyclerView.setAdapter(adapter);
         }
         // Si la id de la rutina no está vacía estamos en modo de edición
-        if (!routine.getId().isEmpty())
-        {
-            editMode = true;
-            // Clonamos la rutina para posteriormente comprobar si ha sido alterada
-            try { oldRoutine = (Routine) routine.clone(); }
-            catch (CloneNotSupportedException e) { e.printStackTrace(); }
-        }
+        if (!routine.getId().isEmpty()) { editMode = true; }
 
         return view;
     }
@@ -167,20 +157,15 @@ public class WorkoutListFragment extends Fragment
                     firebaseService = FirebaseService.getInstance();
 
                     final String uid = firebaseService.getUid();
-                    // Si estamos en modo de edición actualizamos la rutina en la nube solo si
-                    // esta ha sido alterada
+                    // Si estamos en modo de edición actualizamos la rutina en la nube
                     if (editMode)
                     {
-                        if (!routine.equals(oldRoutine))
-                        {
-                            String key = routine.getId();
+                        String key = routine.getId();
 
-                            firebaseService.save("routines/" + uid + "/" + key, routine);
-                        }
+                        firebaseService.save("routines/" + uid + "/" + key, routine);
                     } // Si no estamos en modo de edición añadimos la nueva rutina a la nube
                     else
-                    {
-                        // Obtenemos la nueva Id/key para la nueva rutina
+                    {   // Obtenemos la nueva Id/key para la nueva rutina
                         final String key = firebaseService.getNewReferenceKey("routines/" + uid);
 
                         routine.setId(key);
@@ -213,32 +198,6 @@ public class WorkoutListFragment extends Fragment
                             public void onCancelled(@NonNull DatabaseError databaseError) { }
                         });
                     }
-
-                    /*FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-                    WorkoutFragment workoutFragment = WorkoutFragment.newInstance();
-                    BottomNavigationFragment bottomNavigation = BottomNavigationFragment
-                        .newInstance();
-
-                    fragmentManager.beginTransaction()
-                        .replace(
-                            R.id.mainWorkoutFragment,
-                            workoutFragment,
-                            WorkoutFragment.TAG
-                        )
-                        .replace(
-                            R.id.mainBottomNavigation,
-                            bottomNavigation,
-                            BottomNavigationFragment.TAG
-                        )
-                        .commit();*/
-
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-                    WorkoutFragment workoutFragment = (WorkoutFragment) fragmentManager
-                        .findFragmentByTag(WorkoutFragment.TAG);
-
-                    workoutFragment.updateData();
 
                     RoutineDialogFragment dialog = (RoutineDialogFragment) getParentFragment();
 
@@ -377,10 +336,10 @@ public class WorkoutListFragment extends Fragment
             if (workout.getId() == toId)
             {
                 workout.setName(from.getName());
-                workout.setRest(from.isRestDay());
+                workout.setRestDay(from.isRestDay());
                 workout.copyExercises(from.getExercises());
 
-                adapter.notifyDataSetChanged();
+                adapter.notifyItemChanged(toId);
             }
         }
     }
@@ -397,10 +356,10 @@ public class WorkoutListFragment extends Fragment
             if (workout.getId() == id)
             {
                 workout.setName("");
-                workout.setRest(false);
+                workout.setRestDay(false);
                 workout.setExercises(new ArrayList<Exercise>());
 
-                adapter.notifyDataSetChanged();
+                adapter.notifyItemChanged(id);
             }
         }
     }
@@ -418,7 +377,7 @@ public class WorkoutListFragment extends Fragment
     public interface OnWorkoutSelectedListener
     {
         void onWorkoutSelected(Workout workout);
-        void onCopyWorkoutSelected(int id);
-        void onClearWorkoutSelected(int id);
+        void onCopyWorkout(int id);
+        void onClearWorkout(int id);
     }
 }

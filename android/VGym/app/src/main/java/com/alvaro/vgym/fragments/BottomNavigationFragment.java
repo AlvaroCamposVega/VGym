@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import com.alvaro.vgym.R;
 import com.alvaro.vgym.model.Routine;
@@ -55,23 +56,33 @@ public class BottomNavigationFragment extends Fragment
             .findViewById(R.id.fragmentBottomNavigation);
         // Listener para la barra de navegación inferior
         bottomNavigation.setOnNavigationItemSelectedListener(menuItem -> {
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
             boolean result = true;
 
             switch (menuItem.getItemId())
             {
                 case R.id.mnuBottomNavRoutine:
-                    // Quitar fragmento perfil y poner fragmento rutina
+                    WorkoutFragment workoutFragment = WorkoutFragment.newInstance();
+
+                    fragmentManager.beginTransaction()
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .replace(R.id.mainFragmentFrame, workoutFragment, WorkoutFragment.TAG)
+                        .commit();
+
                     break;
                 case R.id.mnuBottomNavProfile:
-                    // Quitar fragmento rutina y poner fragmento perfil
-                    Log.i("VGym", "Click en Perfil!");
+                    ProfileFragment profileFragment = ProfileFragment.newInstance();
+
+                    fragmentManager.beginTransaction()
+                        .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_OPEN)
+                        .replace(R.id.mainFragmentFrame, profileFragment, ProfileFragment.TAG)
+                        .commit();
+
                     break;
                 case R.id.mnuBottomNavNewRoutine:
                     RoutineDialogFragment routineDialog = RoutineDialogFragment.newInstance(
                         new Routine(getContext())
                     );
-
-                    FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
                     routineDialog.show(fragmentManager, RoutineDialogFragment.TAG);
 

@@ -8,7 +8,6 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.alvaro.vgym.R;
-import com.alvaro.vgym.fragments.dummy.DummyContent.DummyItem;
 import com.alvaro.vgym.model.Exercise;
 
 import java.util.List;
@@ -18,7 +17,6 @@ import java.util.List;
  */
 public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHolder>
 {
-
     private final List<Exercise> exercises;
 
     public WorkoutAdapter(List<Exercise> exerciseList) { exercises = exerciseList; }
@@ -46,7 +44,6 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        public final View exerciseView;
         public final TextView exerciseName;
         public final TextView exerciseInfo;
         public Exercise exercise;
@@ -54,7 +51,6 @@ public class WorkoutAdapter extends RecyclerView.Adapter<WorkoutAdapter.ViewHold
         public ViewHolder(View view)
         {
             super(view);
-            exerciseView = view;
             exerciseName = view.findViewById(R.id.adapterExerciseName);
             exerciseInfo = view.findViewById(R.id.adapterExerciseInfo);
         }

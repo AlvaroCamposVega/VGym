@@ -35,6 +35,8 @@ public class FirebaseService
 
     public String getUid() { return fbAuth.getUid(); }
 
+    public String getEmail() { return getCurrentUser().getEmail(); }
+
     public Task<AuthResult> signInWithEmailAndPassword(String email, String password)
     {
         return fbAuth.signInWithEmailAndPassword(email, password);
@@ -44,6 +46,8 @@ public class FirebaseService
     {
         return fbAuth.createUserWithEmailAndPassword(email, password);
     }
+
+    public Task<Void> deleteUser() { return fbAuth.getCurrentUser().delete(); }
 
     public void signOut() { fbAuth.signOut(); }
 
@@ -64,7 +68,7 @@ public class FirebaseService
     }
 
     /**
-     * Añade un elemento a la nube.
+     * Añade o actualiza un elemento en la nube.
      *
      * @param reference La referencia a la base de datos.
      * @param object El objeto.

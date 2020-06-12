@@ -8,7 +8,7 @@
     tools:context=".MainActivity">
 
     <FrameLayout
-        android:id="@+id/mainWorkoutFragment"
+        android:id="@+id/mainFragmentFrame"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_alignParentTop="true"

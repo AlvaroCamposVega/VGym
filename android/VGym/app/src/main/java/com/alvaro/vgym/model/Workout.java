@@ -22,8 +22,8 @@ public class Workout implements Serializable
     private String day;
 
     @Expose
-    @SerializedName("rest")
-    private boolean rest;
+    @SerializedName("restDay")
+    private boolean restDay;
 
     @Expose
     @SerializedName("exercises")
@@ -36,7 +36,7 @@ public class Workout implements Serializable
         this.id = id;
         this.day = day;
         this.name = "";
-        this.rest = false;
+        this.restDay = false;
         this.exercises = new ArrayList<>();
     }
 
@@ -52,9 +52,9 @@ public class Workout implements Serializable
 
     public void setDay(String day) { this.day = day; }
 
-    public boolean isRestDay() { return rest; }
+    public boolean isRestDay() { return restDay; }
 
-    public void setRest(boolean rest) { this.rest = rest; }
+    public void setRestDay(boolean restDay) { this.restDay = restDay; }
 
     public List<Exercise> getExercises() { return exercises; }
 

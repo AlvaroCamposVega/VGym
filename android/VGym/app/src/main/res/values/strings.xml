@@ -38,7 +38,7 @@
     <string name="new_routine_menu_next_desc">Ir al siguiente paso</string>
     <string name="new_routine_name_hint">Pon un nombre a la rutina</string>
     <string name="placeholder" translatable="false">Placeholder</string>
-    <string name="create">Crear</string>
+    <string name="save_routine">Guardar</string>
     <string name="new_routine_menu_create_desc">Crear la rutina</string>
     <string-array name="days_array">
         <item>Lunes</item>
@@ -69,4 +69,24 @@
     <string name="clear_label">Limpiar</string>
     <string name="copy_to_label">Copiar a</string>
     <string name="cancel_label">Cancelar</string>
+    <string name="no_changes_done">No se han realizado cambios en la rutina</string>
+    <string name="main_menu_del_favorites_desc">Quitar de favoritos esta rutina</string>
+    <string name="del_favorites">Eliminar de Favoritos</string>
+    <string name="no_selected_routine">No hay ninguna rutina seleccionada</string>
+    <string name="no_favorite_routine">No hay ninguna rutina añadida a favoritos</string>
+    <string name="edit_profile_label">Editar Perfil</string>
+    <string name="selected_routine_label">Rutina Seleccionada</string>
+    <string name="favourites_routines_label">Rutinas Favoritas</string>
+    <string name="all_routines_label">Todas las Rutinas</string>
+    <string name="caution">¡Atención!</string>
+    <string name="delete_routine_confirmation_text">¿Estás seguro de eliminar la rutina? Esta acción es irreversible.</string>
+    <string name="select_new_default_routine">Selecciona una nueva rutina por defecto</string>
+    <string name="delete_account_confirmation_text">¿Está seguro de eliminar su cuenta? Esta acción es irreversible.</string>
+    <string name="delete_account_needs_restart">No se ha podido realizar la operación. Pruebe a iniciar sesión de nuevo</string>
+    <string name="recover_last_routine">Recuperar última rutina descartada</string>
+    <string name="clear_cache">Limpiar Caché</string>
+    <string name="profile_menu_clear_cache_desc">Limpiar la memoria caché de la aplicación</string>
+    <string name="reminder">Recordatorio</string>
+    <string name="reminder_desc">Recordatorios de la aplicación</string>
+    <string name="reminder_msg">¡A machacar esos músculos! ¡Hoy toca</string>
 </resources>

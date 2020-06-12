@@ -4,9 +4,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/mnuProfileDeleteAccount"
-        android:title="@string/delete_account"
-        android:contentDescription="@string/profile_menu_delete_account_desc"
+        android:id="@+id/mnuProfileClearCache"
+        android:title="@string/clear_cache"
+        android:contentDescription="@string/profile_menu_clear_cache_desc"
         app:showAsAction="never"
         />
 
@@ -15,4 +15,11 @@
         android:title="@string/logout"
         android:contentDescription="@string/main_menu_logout_desc"
         app:showAsAction="never" />
+
+    <item
+        android:id="@+id/mnuProfileDeleteAccount"
+        android:title="@string/delete_account"
+        android:contentDescription="@string/profile_menu_delete_account_desc"
+        app:showAsAction="never"
+        />
 </menu>

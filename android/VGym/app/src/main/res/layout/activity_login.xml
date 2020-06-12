@@ -25,6 +25,7 @@
         android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
         android:textColor="@color/surfaceL"
         android:fontFamily="@font/raleway_medium"
+        android:gravity="center"
         android:layout_gravity="center">
     </TextView>
 

@@ -139,7 +139,7 @@ public class RegisterActivity extends AppCompatActivity
                         registerBtn,
                         R.string.create_fbAccount_error,
                         Snackbar.LENGTH_SHORT
-                    );
+                    ).show();
                 } // Si se crea correctamente añadimos los datos del usuario a la base de datos
                 else
                 {   // Creamos un objeto del usuario
@@ -147,8 +147,9 @@ public class RegisterActivity extends AppCompatActivity
                     String uid = fbService.getUid();
                     // Añadimos los datos del usuario a la base de datos
                     fbService.save("users/" + uid, user);
+                    fbService.signOut();
                     // Lanzamos la actividad principal
-                    Intent mainIntent = new Intent(this, MainActivity.class);
+                    Intent mainIntent = new Intent(this, LoginActivity.class);
                     startActivity(mainIntent);
                 }
             }

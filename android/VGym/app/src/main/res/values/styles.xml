@@ -22,6 +22,10 @@
         <item name="android:textColor">?attr/colorPrimary</item>
     </style>
 
+    <style name="TextButton" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:textColor">?attr/colorSecondary</item>
+    </style>
+
     <style name="FullScreenDialog" parent="Theme.MyApp">
         <!-- Set this to true if you want Full Screen without status bar -->
         <item name="android:windowFullscreen">false</item>

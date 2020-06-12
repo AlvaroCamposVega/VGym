@@ -1,21 +1,26 @@
 package com.alvaro.vgym.fragments;
 
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.alvaro.vgym.R;
+import com.alvaro.vgym.database.RoutineCacheContract.*;
 import com.alvaro.vgym.model.Routine;
-import com.alvaro.vgym.model.Workout;
 import com.google.android.material.appbar.MaterialToolbar;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.textfield.TextInputEditText;
 
-import java.util.List;
+import java.io.ByteArrayInputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,6 +36,7 @@ public class RoutineNameFragment extends Fragment
     private MaterialToolbar topAppBar;
 
     private TextInputEditText nameInput;
+    private Button recoverBtn;
     // Required empty public constructor
     public RoutineNameFragment() { }
 
@@ -79,6 +85,55 @@ public class RoutineNameFragment extends Fragment
         nameInput = view.findViewById(R.id.routineNameName);
         nameInput.setText(routine.getName());
 
+        if (routine.getId().isEmpty())
+        {
+            RoutineCacheDbHelper dbHelper = new RoutineCacheDbHelper(getContext());
+
+            SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+            String[] projection = { RoutineCache.COLUMN_NAME_ROUTINE };
+
+            Cursor cursor = db.query(
+                RoutineCache.TABLE_NAME,
+                projection,
+                null,
+                null,
+                null,
+                null,
+                null
+            );
+
+            byte[] dbBlob = null;
+
+            while (cursor.moveToNext())
+            {
+                dbBlob = cursor.getBlob(
+                    cursor.getColumnIndex(RoutineCache.COLUMN_NAME_ROUTINE)
+                );
+            }
+
+            final byte[] routineBlob = dbBlob;
+
+            if (routineBlob != null)
+            {
+                recoverBtn = view.findViewById(R.id.routineNameRecoverBtn);
+                recoverBtn.setVisibility(View.VISIBLE);
+
+                recoverBtn.setOnClickListener(v -> {
+                    Routine routineAux = readByte(routineBlob);
+
+                    routine.setName(routineAux.getName());
+                    routine.setWorkouts(routineAux.getWorkouts());
+
+                    nameInput.setText(routine.getName());
+
+                    recoverBtn.setVisibility(View.GONE);
+
+                    db.delete(RoutineCache.TABLE_NAME, null, null);
+                });
+            }
+        }
+
         return view;
     }
 
@@ -90,19 +145,7 @@ public class RoutineNameFragment extends Fragment
         RoutineDialogFragment routineDialogFragment = (RoutineDialogFragment)
             getParentFragment();
         // Listener del botón de cancelar (la X)
-        topAppBar.setNavigationOnClickListener(v -> {
-            /*FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-            WorkoutFragment workoutFragment = WorkoutFragment.newInstance();
-            BottomNavigationFragment bottomNavigation = BottomNavigationFragment.newInstance();
-
-            fragmentManager.beginTransaction()
-                .replace(R.id.mainWorkoutFragment, workoutFragment, WorkoutFragment.TAG)
-                .replace(R.id.mainBottomNavigation, bottomNavigation, BottomNavigationFragment.TAG)
-                .commit();*/
-
-            routineDialogFragment.dismiss();
-        });
+        topAppBar.setNavigationOnClickListener(v -> routineDialogFragment.dismiss());
         // Listener del texto SIGUIENTE
         topAppBar.setOnMenuItemClickListener(menuItem -> {
             if (menuItem.getItemId() == R.id.mnuRoutineNameNext)
@@ -151,5 +194,22 @@ public class RoutineNameFragment extends Fragment
         if (!name.trim().isEmpty()) { routine.setName(name); result = true; }
 
         return result;
+    }
+
+    private Routine readByte(byte[] data)
+    {
+        try
+        {
+            ByteArrayInputStream baip = new ByteArrayInputStream(data);
+            ObjectInputStream ois = new ObjectInputStream(baip);
+
+            Routine dataobj = (Routine) ois.readObject();
+
+            return dataobj;
+        }
+        catch (IOException e) { e.printStackTrace(); }
+        catch (ClassNotFoundException e) { e.printStackTrace(); }
+
+        return null;
     }
 }

@@ -47,6 +47,15 @@
     <color name="primaryDV">#0082cb</color> <!--Color primary variant (dark)-->
     <color name="primaryLV">#0079cb</color> <!--Color primary variant (light)-->
 
+    <color name="editBtn">#56BBFE</color>
+    <color name="editBtnShadow">#3E97F2</color>
+    <color name="selectBtn">#66DF21</color>
+    <color name="selectBtnShadow">#2EA126</color>
+    <color name="disabledSelectBtn">#D0D9CB</color>
+    <color name="disabledSelectBtnShadow">#95A194</color>
+    <color name="deleteBtn">#DF2121</color>
+    <color name="deleteBtnShadow">#A82F3B</color>
+
     <color name="secondary">#ffc800</color> <!--Color secondary-->
     <color name="secondaryV">#c79800</color> <!--Color secondary variant-->
 

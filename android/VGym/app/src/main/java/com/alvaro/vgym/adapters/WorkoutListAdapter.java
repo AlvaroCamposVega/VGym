@@ -1,7 +1,10 @@
 package com.alvaro.vgym.adapters;
 
+import android.annotation.SuppressLint;
+import android.content.res.Configuration;
 import android.view.ContextMenu;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -53,9 +56,9 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
         {
             holder.workoutName.setText(holder.workoutView.getResources().getString(R.string.rest));
 
-            holder.workoutView.setBackgroundColor(
+            /*holder.workoutView.setBackgroundColor(
                 holder.workoutView.getResources().getColor(R.color.restDay)
-            );
+            );*/
         } // Si el nombre está vacío ponemos un guión como nombre
         else if (workouts.get(position).getName().trim().isEmpty())
         {
@@ -71,6 +74,30 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
                 interactionListener.onWorkoutSelected(holder.workout);
             }
         });
+
+        if (workouts.get(position).isRestDay())
+        {
+            holder.workoutView.setBackgroundColor(
+                holder.workoutView.getResources().getColor(R.color.restDay)
+            );
+        }
+        else
+        {
+            switch (holder.workoutView.getResources().getConfiguration().uiMode
+                & Configuration.UI_MODE_NIGHT_MASK
+            )
+            {
+                case Configuration.UI_MODE_NIGHT_YES:
+                    holder.workoutView.setBackgroundColor(
+                        holder.workoutView.getResources().getColor(R.color.backgroundD)
+                    );
+                    break;
+                default:
+                    holder.workoutView.setBackgroundColor(
+                        holder.workoutView.getResources().getColor(R.color.backgroundL)
+                    );
+            }
+        }
     }
 
     @Override
@@ -106,17 +133,26 @@ public class WorkoutListAdapter extends RecyclerView.Adapter<WorkoutListAdapter.
         {   // API 23 AND ABOVE
             menu.setHeaderTitle(R.string.options_label);
 
-            menu.add(0, workout.getId(), 0, R.string.copy_label)
-            .setOnMenuItemClickListener(item -> {
-                interactionListener.onCopyWorkoutSelected(item.getItemId());
-                return true;
+            MenuItem menuItem1 = menu.add(0, workout.getId(), 0, R.string.copy_label)
+                .setOnMenuItemClickListener(item -> {
+                    interactionListener.onCopyWorkout(item.getItemId());
+
+                    return true;
+                });
+
+            MenuItem menuItem2 = menu.add(0, workout.getId(), 0, R.string.clear_label)
+                .setOnMenuItemClickListener(item -> {
+                    interactionListener.onClearWorkout(item.getItemId());
+
+                    return true;
             });
 
-            menu.add(0, workout.getId(), 0, R.string.clear_label)
-            .setOnMenuItemClickListener(item -> {
-                interactionListener.onClearWorkoutSelected(item.getItemId());
-                return true;
-            });
+            if (workout.getName().trim().isEmpty() && workout.getExercises().isEmpty()
+                && !workout.isRestDay())
+            {
+                menuItem1.setEnabled(false);
+                menuItem2.setEnabled(false);
+            }
         }
     }
 }

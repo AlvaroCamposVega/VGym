@@ -1,11 +1,12 @@
 package com.alvaro.vgym.fragments;
 
 import android.app.Dialog;
+import android.content.ContentValues;
 import android.content.DialogInterface;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.util.Log;
+import android.provider.BaseColumns;
 import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -14,10 +15,16 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.DialogFragment;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
 import com.alvaro.vgym.R;
+import com.alvaro.vgym.database.RoutineCacheContract.*;
 import com.alvaro.vgym.model.Routine;
+import com.alvaro.vgym.model.Workout;
+
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -83,36 +90,8 @@ public class RoutineDialogFragment extends DialogFragment
             container,
             false
         );
-        // Si el tema activo es el tema oscuro cambiamos el color de fondo del fragmento
-        /*switch (getResources().getConfiguration().uiMode & Configuration.UI_MODE_NIGHT_MASK)
-        {
-            case Configuration.UI_MODE_NIGHT_YES:
-                int color = getActivity().getColor(R.color.backgroundD);
-
-                rootView.findViewById(R.id.newRoutineTopAppBar).setBackgroundColor(color);
-                break;
-        }*/
 
         return rootView;
-    }
-
-    @Override
-    public void onStart()
-    {
-        super.onStart();
-
-        /*FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
-
-        WorkoutFragment workoutFragment = (WorkoutFragment) fragmentManager
-            .findFragmentByTag(WorkoutFragment.TAG);
-        BottomNavigationFragment bottomNavigation = (BottomNavigationFragment) fragmentManager
-            .findFragmentByTag(BottomNavigationFragment.TAG);
-        // Añadimos los fragmentos a la actividad
-        fragmentManager.beginTransaction()
-            .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
-            .remove(workoutFragment)
-            .remove(bottomNavigation)
-            .commit();*/
     }
 
     @Override
@@ -126,5 +105,59 @@ public class RoutineDialogFragment extends DialogFragment
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.getWindow().setWindowAnimations(R.style.DialogAnimations);
         return dialog;
+    }
+
+    @Override
+    public void onDismiss(@NonNull DialogInterface dialog)
+    {
+        if (routine.getId().isEmpty())
+        {
+            boolean nameNotEmpty = (!routine.getName().trim().isEmpty());
+            boolean workoutNotEmpty = false;
+
+            for (Workout workout : routine.getWorkouts())
+            {
+                if (!workout.getName().trim().isEmpty() || !workout.getExercises().isEmpty())
+                {
+                    workoutNotEmpty = true;
+                }
+            }
+
+            if (nameNotEmpty || workoutNotEmpty)
+            {
+                RoutineCacheDbHelper dbHelper = new RoutineCacheDbHelper(getContext());
+
+                SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+                db.delete(RoutineCache.TABLE_NAME, null, null);
+
+                ContentValues values = new ContentValues();
+                values.put(RoutineCache.COLUMN_NAME_ROUTINE, makeByte());
+
+                db.insert(RoutineCache.TABLE_NAME, null, values);
+            }
+        }
+
+        super.onDismiss(dialog);
+    }
+
+    private byte[] makeByte()
+    {
+        try
+        {
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+
+            oos.writeObject(routine);
+
+            byte[] routineAsBytes = baos.toByteArray();
+
+            ByteArrayInputStream bais = new ByteArrayInputStream(routineAsBytes);
+
+            return routineAsBytes;
+        }
+        catch (IOException e) { e.printStackTrace(); }
+
+        return null;
     }
 }

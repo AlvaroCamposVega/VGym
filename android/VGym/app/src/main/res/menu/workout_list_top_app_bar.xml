@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/mnuWorkoutListCreate"
-        android:title="@string/create"
+        android:title="@string/save_routine"
         android:contentDescription="@string/new_routine_menu_create_desc"
         app:showAsAction="ifRoom" />
 </menu>

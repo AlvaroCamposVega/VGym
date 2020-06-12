@@ -36,7 +36,8 @@
             android:fontFamily="@font/raleway_medium"
             android:layout_gravity="center"
             style="@style/IconStyle"
-            android:layout_marginBottom="40dp">
+            android:layout_marginBottom="40dp"
+            android:visibility="visible">
         </TextView>
 
         <TextView
@@ -119,6 +120,36 @@
                 app:layout_constraintTop_toBottomOf="@+id/workoutRoutineName"
                 tools:context=".fragments.WorkoutFragment"
                 tools:listitem="@layout/fragment_workout_adapter" />
+
+            <LinearLayout
+                android:id="@+id/workoutRestMsg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="152dp"
+                    android:layout_height="152dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_mood_48dp"
+                    android:tint="@color/restDay">
+                </ImageView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_margin="@dimen/text_margin"
+                    android:alpha="0.5"
+                    android:fontFamily="@font/raleway_medium"
+                    android:gravity="center"
+                    android:text="@string/rest_day_msg"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6">
+                </TextView>
+            </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </FrameLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

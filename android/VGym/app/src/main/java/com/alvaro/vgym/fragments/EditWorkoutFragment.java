@@ -26,6 +26,7 @@ import com.google.android.material.switchmaterial.SwitchMaterial;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -82,6 +83,8 @@ public class EditWorkoutFragment extends Fragment
         if (getArguments() != null)
         {
             workout = (Workout) getArguments().getSerializable(ARG_WORKOUT);
+
+            if (workout.getExercises() == null) { workout.setExercises(new ArrayList<Exercise>()); }
         }
     }
 
@@ -207,7 +210,7 @@ public class EditWorkoutFragment extends Fragment
         restSwitch.setChecked(workout.isRestDay());
 
         restSwitch.setOnClickListener(v -> {
-            workout.setRest(restSwitch.isChecked());
+            workout.setRestDay(restSwitch.isChecked());
 
             if (restSwitch.isChecked())
             {

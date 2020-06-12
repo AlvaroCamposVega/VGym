@@ -52,5 +52,17 @@
                 android:inputType="text" />
 
         </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/routineNameRecoverBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:text="@string/recover_last_routine"
+            android:letterSpacing="0"
+            android:layout_marginTop="40dp"
+            android:visibility="gone"
+            />
     </LinearLayout>
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

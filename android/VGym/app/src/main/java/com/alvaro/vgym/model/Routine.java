@@ -2,8 +2,6 @@ package com.alvaro.vgym.model;
 
 import android.content.Context;
 
-import androidx.annotation.NonNull;
-
 import com.alvaro.vgym.R;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -12,7 +10,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Routine implements Serializable, Cloneable
+public class Routine implements Serializable, Comparable
 {
     @Expose
     @SerializedName("id")
@@ -23,8 +21,8 @@ public class Routine implements Serializable, Cloneable
     private String name;
 
     @Expose
-    @SerializedName("favourite")
-    private boolean favourite;
+    @SerializedName("favorite")
+    private boolean favorite;
 
     @Expose
     @SerializedName("selected")
@@ -40,7 +38,7 @@ public class Routine implements Serializable, Cloneable
     {
         this.id = "";
         this.name = "";
-        this.favourite = false;
+        this.favorite = false;
         this.selected = false;
         // Obtenemos los días de la semana
         String[] days = ctx.getResources().getStringArray(R.array.days_array);
@@ -58,9 +56,9 @@ public class Routine implements Serializable, Cloneable
 
     public void setName(String name) { this.name = name; }
 
-    public boolean isFavourite() { return favourite; }
+    public boolean isFavorite() { return favorite; }
 
-    public void setFavourite(boolean favourite) { this.favourite = favourite; }
+    public void setFavorite(boolean favorite) { this.favorite = favorite; }
 
     public boolean isSelected() { return selected; }
 
@@ -70,12 +68,25 @@ public class Routine implements Serializable, Cloneable
 
     public void setWorkouts(List<Workout> workouts) { this.workouts = workouts; }
 
-    @NonNull
+    @Override
+    public int compareTo(Object o)
+    {
+        if (o instanceof Routine)
+        {
+            Routine obj = (Routine) o;
+
+            return this.name.toLowerCase().compareTo(obj.getName().toLowerCase());
+        }
+
+        return 0;
+    }
+
+    /*@NonNull
     @Override
     public Object clone() throws CloneNotSupportedException
     {
         return super.clone();
-    }
+    }*/
 
     @Override
     public boolean equals(Object o)

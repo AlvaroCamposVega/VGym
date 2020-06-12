@@ -37,7 +37,7 @@
     <string name="next">Next</string>
     <string name="new_routine_menu_next_desc">Go to the next step</string>
     <string name="new_routine_name_hint">Give a name to the routine</string>
-    <string name="create">Create</string>
+    <string name="save_routine">Save</string>
     <string name="new_routine_menu_create_desc">Create the routine</string>
     <string-array name="days_array">
         <item>Monday</item>
@@ -68,4 +68,24 @@
     <string name="clear_label">Clear</string>
     <string name="copy_to_label">Copy to</string>
     <string name="cancel_label">Cancel</string>
+    <string name="no_changes_done">No changes were made</string>
+    <string name="del_favorites">Remove from Favorites</string>
+    <string name="main_menu_del_favorites_desc">Remove this routine from favorites</string>
+    <string name="no_selected_routine">There isn\'t any selected routine</string>
+    <string name="no_favorite_routine">There isn\'t any routine marked as favorite</string>
+    <string name="edit_profile_label">Edit Profile</string>
+    <string name="selected_routine_label">Selected Routine</string>
+    <string name="favourites_routines_label">Favorites Routines</string>
+    <string name="all_routines_label">All Routines</string>
+    <string name="caution">Caution!</string>
+    <string name="delete_routine_confirmation_text">Are you sure you want to delete the routine? This action cannot be undone.</string>
+    <string name="select_new_default_routine">Choose a new default routine</string>
+    <string name="delete_account_confirmation_text">Are you sure you want to delete your account? This action cannot be undone.</string>
+    <string name="delete_account_needs_restart">There was an error during the operation. Try to Log In again</string>
+    <string name="recover_last_routine">Recover last dismissed routine</string>
+    <string name="clear_cache">Clear Cache</string>
+    <string name="profile_menu_clear_cache_desc">Clear cache memory of the app</string>
+    <string name="reminder">Reminder</string>
+    <string name="reminder_desc">App reminders</string>
+    <string name="reminder_msg">Ready to give it all? Today it\'s</string>
 </resources>

@@ -217,3 +217,20 @@ Se ha refactorizado todo el código de la aplicación (cambiado nombres, agregad
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-main-incompleta-menu.PNG" alt="Pantalla Inicio Incompleta con Menú" title="Pantalla Inicio Incompleta con Menú">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/Device-nueva-rutina-ctx-menu.PNG" alt="Diálogo Nueva Rutina con Menú Contextual de Acciones" title="Diálogo Nueva Rutina con Menú Contextual de Acciones">
 </p>
+
+
+## Semana 8 de Mayo 2020
+La aplicación se ha desarrollado en su totalidad habiendo finalizado el diálogo de nueva rutina, la pantalla de inicio y la pantalla de perfil, además, se ha creado la página web para esta la cual está disponible en el enlace en la sección "Página web".
+
+**Recursos utilizados:**
+
+* [Notificaciones](https://www.youtube.com/watch?v=1fV9NmvxXJo)
+* [Notificaciones](https://www.youtube.com/watch?v=tTbd1Mfi-Sk)
+* [Notificaciones](https://www.youtube.com/watch?v=CZ575BuLBo4)
+* [Alarm Manager](https://www.youtube.com/watch?v=yrpimdBRk5Q)
+* [Documentación SQLite](https://developer.android.com/training/data-storage/sqlite?hl=es-419)
+* [Serializar Objeto para Insertarlo en una Columna de Tipo BLOB](https://stackoverflow.com/questions/1243181/how-to-store-object-in-sqlite-database)
+* [Notificaciones](https://www.youtube.com/watch?v=1fV9NmvxXJo)
+* [Notificaciones](https://www.youtube.com/watch?v=1fV9NmvxXJo)
+
+**[Vídeo]()**

@@ -6,7 +6,7 @@ Para comenzar a utilizar VGym puedes seguir los siguientes pasos para aprender a
 * Regístrate o inicia sesión si dispones de una cuenta de VGym.
 
 <p align="center">
-  <img width="100" heigth="100" src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/tutorial12.png">
+  <img width="300" heigth="300" src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/tutorial12.png">
 </p>
 
 * Crea una nueva rutina pulsando "Nueva Rutina".

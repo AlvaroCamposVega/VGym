@@ -6,11 +6,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.core.widget.NestedScrollView;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -51,7 +53,7 @@ public class ProfileFragment extends Fragment
     private View view;
     private TextView loading;
     private TextView userName;
-    //private Button editBtn;
+    private Button editBtn;
     private NestedScrollView noRoutines;
 
     private OnRoutineInteractionListener listener;
@@ -94,11 +96,12 @@ public class ProfileFragment extends Fragment
         setTopAppBarListener();
 
         userName = view.findViewById(R.id.profileName);
-        //editBtn = view.findViewById(R.id.profileEditBtn);
+
+        editBtn = view.findViewById(R.id.profileEditBtn);
+        setEditBtnListener();
+
         loading = view.findViewById(R.id.profileLoading);
         noRoutines = view.findViewById(R.id.profileNoRoutines);
-
-        //setEditBtnListener();
 
         getData();
 
@@ -198,12 +201,16 @@ public class ProfileFragment extends Fragment
         });
     }
 
-    /*private void setEditBtnListener()
+    private void setEditBtnListener()
     {
         editBtn.setOnClickListener(v -> {
+            FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
 
+            ProfileDialogFragment profileDialog = ProfileDialogFragment.newInstance(user);
+
+            profileDialog.show(fragmentManager, ProfileDialogFragment.TAG);
         });
-    }*/
+    }
 
     private void getData()
     {
@@ -259,7 +266,7 @@ public class ProfileFragment extends Fragment
 
         loading.setVisibility(View.GONE);
         userName.setVisibility(View.VISIBLE);
-        //editBtn.setVisibility(View.VISIBLE);
+        editBtn.setVisibility(View.VISIBLE);
 
         topAppBar.setTitle(firebaseService.getEmail());
         userName.setText(user.toString());

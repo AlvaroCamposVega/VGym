@@ -148,7 +148,7 @@ public class WorkoutListFragment extends Fragment
         });
         // Listener del texto CREAR
         topAppBar.setOnMenuItemClickListener(menuItem -> {
-            if (menuItem.getItemId() == R.id.mnuWorkoutListCreate)
+            if (menuItem.getItemId() == R.id.mnuWorkoutListSave)
             {
                 if (validateRoutine())
                 {

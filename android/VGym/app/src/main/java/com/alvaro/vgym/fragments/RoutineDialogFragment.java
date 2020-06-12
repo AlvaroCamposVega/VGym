@@ -5,7 +5,6 @@ import android.content.ContentValues;
 import android.content.DialogInterface;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.provider.BaseColumns;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import com.alvaro.vgym.R;
-import com.alvaro.vgym.database.RoutineCacheContract.*;
+import com.alvaro.vgym.database.RoutineCacheContract.RoutineCache;
+import com.alvaro.vgym.database.RoutineCacheContract.RoutineCacheDbHelper;
 import com.alvaro.vgym.model.Routine;
 import com.alvaro.vgym.model.Workout;
 
@@ -27,7 +27,7 @@ import java.io.IOException;
 import java.io.ObjectOutputStream;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link DialogFragment} subclass.
  * Use the {@link RoutineDialogFragment#newInstance} factory method to
  * create an instance of this fragment.
  */

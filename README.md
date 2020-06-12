@@ -44,6 +44,8 @@ Para comenzar a utilizar VGym puedes seguir los siguientes pasos para aprender a
 
 ## [Presentación](https://github.com/AlvaroCamposVega/VGym/blob/master/Presentacion%20VGym.pdf)
 
+## [Segunda Presentación](https://github.com/AlvaroCamposVega/VGym/blob/master/Presentacion%20VGym2.pdf)
+
 ## Versión Preliminar 11/05/2020
 En el vídeo explicativo no se hace referencia pero la aplicación dispone de tema oscuro el cual se activará si el dispositivo tiene esta opción marcada en los ajustes de pantalla.
 

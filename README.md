@@ -13,6 +13,5 @@ La apk de la aplicación la puedes encontrar en android/apk/vgym.apk.
 # [Diario](https://github.com/AlvaroCamposVega/VGym/blob/master/diario)
 
 # Página Web
-[Repositorio de la Página Web](https://github.com/AlvaroCamposVega/VGym-web)
-
-[Página Web](https://alvarocamposvega.github.io/VGym-web/)
+* [Repositorio de la Página Web](https://github.com/AlvaroCamposVega/VGym-web)
+* [Página Web](https://alvarocamposvega.github.io/VGym-web/)

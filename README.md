@@ -32,8 +32,8 @@ Para comenzar a utilizar VGym puedes seguir los siguientes pasos para aprender a
 * Puedes ver qué te toca entrenar hoy en la pantalla "Rutina" y puedes consultar, editar, añadir a favoritos y eliminar rutinas en la pantalla de "Perfil".
 
 <p align="center">
-  <img width="250" heigth="250" src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/tutoria9.png">
-  <img width="250" heigth="250" src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/tutorial0.png">
+  <img width="250" heigth="250" src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/tutorial9.png">
+  <img width="250" heigth="250" src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/tutoriall0.png">
 </p>
 
 * Si por algún motivo descartas una rutina incompleta la puedes recuperar cuando vayas a volver a crear una presionando en el botón "RECUPERAR ÚLTIMA RUTINA DESCARTADA"

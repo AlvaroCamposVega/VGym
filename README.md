@@ -5,7 +5,7 @@ Para comenzar a utilizar VGym puedes seguir los siguientes pasos para aprender a
 
 * Regístrate o inicia sesión si dispones de una cuenta de VGym.
 
-<p align="center" width="200" heigth="200">
+<p align="center" width="100" heigth="100">
   <img src="https://github.com/AlvaroCamposVega/VGym/blob/master/img/tutorial12.png">
 </p>
 

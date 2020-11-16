@@ -191,7 +191,7 @@ El desarrollo del diálogo de la nueva rutina está casi completo (solo falta el
 </p>
 
 
-## Semana 1 de Mayo 2020
+## Semana 1 de Junio 2020
 Se ha refactorizado todo el código de la aplicación (cambiado nombres, agregado comentarios, etc) para que su mantenimiento fuera más sencillo ya que los nombres que tenían algunas clases daban lugar a confusión. El diálogo de nueva rutina (Y editar rutina) está casi terminado quedando sólo un bug y alguna implementación por finalizar. La pantalla de inicio se encuentra en el mismo estado que el diálogo de nueva rutina.
 
 **Recursos utilizados:**
@@ -207,7 +207,7 @@ Se ha refactorizado todo el código de la aplicación (cambiado nombres, agregad
 </p>
 
 
-## Semana 8 de Mayo 2020
+## Semana 8 de Junio 2020
 La aplicación se ha desarrollado en su totalidad habiendo finalizado el diálogo de nueva rutina, la pantalla de inicio y la pantalla de perfil, además, se ha creado la página web para esta la cual está disponible en el enlace en la sección "Página web".
 No se ha llegado a desarrollar el "modo offline" ya que después de darle muchas vueltas llegué a la conclusión de que no era una idea muy viable actualmente y ha sido reemplazado por una memoria caché para recuperar las nuevas rutinas descartadas.
 
